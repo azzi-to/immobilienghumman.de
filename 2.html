@@ -1,0 +1,4137 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Immobilien Ghumman</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0f3460;
+      --primary-dark: #16213e;
+      --accent: #e94560;
+      --bg: #f7f7f9;
+      --white: #fff;
+      --grey: #ececec;
+      --text: #222;
+      --text-light: #666;
+      --shadow: 0 2px 8px rgba(15, 52, 96, 0.05);
+      /* Flip Card Variables */
+      --flip-card-front-bg: #0f3460;
+      --flip-card-front-text: #ffffff;
+      --flip-card-back-bg: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+      --flip-card-back-text: #ffffff;
+      --flip-card-icon-color: #ffffff;
+      --flip-card-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      --flip-card-overlay: rgba(0, 0, 0, 0.5);
+    }
+
+ /* Dark Mode Variables */
+    [data-theme="dark"] {
+      --primary: #4a9eff;
+      --primary-dark: #2d5aa0;
+      --accent: #ff6b85;
+      --bg: #0f1419;
+      --white: #1a1f2e;
+      --grey: #252b3a;
+      --text: #e8eaed;
+      --text-light: #9aa0a6;
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      /* Dark Mode Flip Card Variables */
+      --flip-card-front-bg: #2c2c2c;
+      --flip-card-front-text: #e8eaed;
+      --flip-card-back-bg: linear-gradient(135deg, #1e1e1e 0%, #2c2c2c 100%);
+      --flip-card-back-text: #e8eaed;
+      --flip-card-icon-color: #4a9eff;
+      --flip-card-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+      --flip-card-overlay: rgba(255, 255, 255, 0.1);
+    }
+
+    [data-theme="dark"] .nav-logo,
+    [data-theme="dark"] .hero-title,
+    [data-theme="dark"] .section-title,
+    [data-theme="dark"] .pm-title,
+    [data-theme="dark"] .mortgage-title,
+    [data-theme="dark"] .about-col-title,
+    [data-theme="dark"] .contact-title,
+    [data-theme="dark"] .footer-block h3,
+    [data-theme="dark"] .about-stat-label,
+    [data-theme="dark"] .pm-service-label,
+    [data-theme="dark"] .modal-title,
+    [data-theme="dark"] .modal-price,
+    [data-theme="dark"] .property-title,
+    [data-theme="dark"] .property-location,
+    [data-theme="dark"] .property-detail i {
+      color: var(--white);
+    }
+
+    [data-theme="dark"] .nav-logo {
+      color: var(--primary);
+    }
+
+     [data-theme="dark"] .hero-section {
+      background: linear-gradient(rgba(15, 52, 96, 0.5), rgba(22, 33, 62, 0.5)), url('https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') no-repeat center center;
+      height: 50vh;
+    }
+
+    [data-theme="dark"] .hero-title {
+      color: #FFFFFF;
+    }
+
+    [data-theme="dark"] .section-title {
+      color: var(--primary);
+    }
+
+    [data-theme="dark"] .pm-title {
+      color: var(--primary);
+    }
+
+    [data-theme="dark"] .mortgage-title {
+      color: var(--primary);
+    }
+
+    [data-theme="dark"] .about-col-title {
+      color: var(--primary);
+    }
+
+    [data-theme="dark"] .contact-title {
+      color: var(--primary);
+    }
+
+    [data-theme="dark"] .footer-block h3 {
+      color: var(--primary);
+    }
+
+    [data-theme="dark"] .about-stat-label {
+      color: var(--primary);
+    }
+
+    [data-theme="dark"] .pm-service-label {
+      color: var(--primary);
+    }
+
+    [data-theme="dark"] .modal-title {
+      color: var(--primary);
+    }
+
+    [data-theme="dark"] .modal-price {
+      color: var(--primary);
+    }
+
+    [data-theme="dark"] .property-title {
+      color: var(--primary);
+    }
+
+    [data-theme="dark"] .property-location {
+      color: var(--text-light);
+    }
+
+    [data-theme="dark"] .property-detail i {
+      color: var(--primary);
+    }
+
+    html {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+      transition: background 0.3s ease, color 0.3s ease;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Header Navigation */
+    .header-nav {
+      background: var(--white);
+      box-shadow: var(--shadow);
+      padding: 0.7em 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-size: 1.7em;
+      font-weight: 700;
+      color: var(--primary-dark);
+      letter-spacing: -1px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2em;
+    }
+
+    .nav-links a {
+      font-size: 1em;
+      color: var(--primary);
+      font-weight: 500;
+      padding: 0.3em 0.7em;
+      border-radius: 0.4em;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .nav-links a.active,
+    .nav-links a:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    /* Language and Dark Mode Toggles */
+    .lang-toggle, .dark-mode-toggle {
+      background: none;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      font-size: 0.9em;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0.4em 0.8em;
+      border-radius: 0.5em;
+      transition: all 0.3s ease;
+      margin-left: 0.5em;
+    }
+
+    .lang-toggle:hover, .dark-mode-toggle:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .dark-mode-toggle {
+      font-size: 1.1em;
+      padding: 0.4em 0.6em;
+      border-radius: 50%;
+      width: 2.2em;
+      height: 2.2em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 2em;
+      color: var(--primary);
+      cursor: pointer;
+      margin-left: 1em;
+    }
+
+    /* Hamburger Menu Overlay */
+    .nav-overlay {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(15, 52, 96, 0.18);
+      z-index: 999;
+      display: none;
+      transition: opacity 0.3s;
+    }
+
+    .nav-overlay.active {
+      display: block;
+    }
+
+    .nav-menu {
+      position: fixed;
+      top: 0;
+      right: -320px;
+      width: 320px;
+      height: 100vh;
+      background: var(--white);
+      box-shadow: -2px 0 16px rgba(15, 52, 96, 0.13);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      padding: 2em 2em 1em 2em;
+      transition: right 0.3s ease, background 0.3s ease;
+    }
+
+    .nav-menu.active {
+      right: 0;
+    }
+
+    .nav-menu .nav-menu-close {
+      align-self: flex-end;
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      border-radius: 50%;
+      width: 2em;
+      height: 2em;
+      font-size: 1.2em;
+      cursor: pointer;
+      margin-bottom: 2em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-menu-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2em;
+    }
+
+    .nav-menu-links a {
+      font-size: 1.2em;
+      color: var(--primary-dark);
+      font-weight: 600;
+      padding: 0.5em 0.8em;
+      border-radius: 0.5em;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .nav-menu-links a.active,
+    .nav-menu-links a:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .nav-menu-actions {
+      margin-top: 2em;
+      display: flex;
+      gap: 1em;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+      .hamburger {
+        display: block;
+      }
+      .nav-actions .lang-toggle,
+      .nav-actions .dark-mode-toggle {
+        display: none;
+      }
+    }
+
+    /* Hero Section */
+      
+       .hero-section {
+      background: linear-gradient(rgba(15, 52, 96, 0.5), rgba(22, 33, 72, 0.5)), url('https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') no-repeat center center;
+      background-size: cover;
+      height: 50vh;
+      color: var(--white);
+      padding: 80px 0 60px 0;
+      text-align: center;
+      position: relative;
+      transition: background 0.3s ease;
+    }
+
+    .hero-title {
+      font-size: 3.7em;
+      font-weight: 700;
+      margin-bottom: 0.5em;
+      letter-spacing: -1px;
+      animation: fadeInUp 0.7s;
+      color: #ffffff;
+    }
+
+    @media (max-width: 600px) {
+      .hero-title {
+        font-size: 2.2em;
+      }
+    }
+
+    .hero-searchbar {
+      background: var(--white);
+      border-radius: 1em;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      max-width: 700px;
+      margin: 0 auto 2.5em auto;
+      padding: 1.5em 1em;
+      gap: 1em;
+      animation: fadeInUp 1s;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hero-searchbar select,
+    .hero-searchbar button,
+    .hero-searchbar .search-input {
+      font-size: 1.1em;
+      padding: 0.9em 1em;
+      border-radius: 0.5em;
+      border: 1px solid var(--grey);
+      outline: none;
+      background: var(--white);
+      color: var(--text);
+      margin: 0;
+      flex: 1 1 180px;
+      min-width: 150px;
+      transition: border-color 0.2s, background 0.3s ease, color 0.3s ease;
+    }
+
+    .hero-searchbar .search-input {
+      flex: 2 1 300px;
+    }
+
+    .hero-searchbar select:focus,
+    .hero-searchbar .search-input:focus {
+      border-color: var(--primary);
+    }
+
+    .hero-searchbar button {
+      background: var(--primary);
+      color: var(--white);
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      flex: 1 1 180px;
+      min-width: 180px;
+    }
+
+    .hero-searchbar button:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Ensure content after hero is not overlapped */
+    body > .hero-section + * {
+      margin-top: 0;
+    }
+    @media (max-width: 900px) {
+      .hero-bg-fixed,
+      .hero-section::before {
+        height: 320px;
+      }
+    }
+    @media (max-width: 600px) {
+      .hero-bg-fixed,
+      .hero-section::before {
+        height: 220px;
+      }
+    }
+
+    .hero-title {
+      font-size: 3.7em;
+      font-weight: 700;
+      margin-bottom: 0.5em;
+      letter-spacing: -1px;
+      animation: fadeInUp 0.7s;
+      color: #ffffff;
+    }
+
+    @media (max-width: 600px) {
+      .hero-title {
+        font-size: 2.2em;
+      }
+    }
+
+    .hero-searchbar {
+      background: var(--white);
+      border-radius: 1em;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      max-width: 700px;
+      margin: 0 auto 2.5em auto;
+      padding: 1.5em 1em;
+      gap: 1em;
+      animation: fadeInUp 1s;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hero-searchbar select,
+    .hero-searchbar button {
+      font-size: 1.1em;
+      padding: 0.9em 1em;
+      border-radius: 0.5em;
+      border: 1px solid var(--grey);
+      outline: none;
+      background: var(--white);
+      color: var(--text);
+      margin: 0;
+      flex: 1 1 180px;
+      min-width: 150px;
+      transition: border-color 0.2s, background 0.3s ease, color 0.3s ease;
+    }
+
+    .hero-searchbar select:focus {
+      border-color: var(--primary);
+    }
+
+    .hero-searchbar button {
+      background: var(--primary);
+      color: var(--white);
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      flex: 1 1 180px;
+      min-width: 180px;
+    }
+
+    .hero-searchbar button:hover {
+      background: var(--primary-dark);
+    }
+    /* Featured Properties */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    #featured-properties {
+      padding: 80px 0 60px 0;
+    }
+
+    .section-title {
+      font-size: 2.3em;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 0.3em;
+      color: var(--primary-dark);
+      letter-spacing: -1px;
+      animation: fadeInUp 0.7s;
+      transition: color 0.3s ease;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-light);
+      font-size: 1.1em;
+      margin-bottom: 2em;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeInUp 1s;
+      transition: color 0.3s ease;
+    }
+
+    .properties-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2em;
+      margin-bottom: 2em;
+    }
+
+    @media (max-width: 900px) {
+      .properties-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .properties-grid {
+        grid-template-columns: 1fr;
+      }
+      .section-title {
+        font-size: 1.5em;
+      }
+    }
+
+    .property-card {
+      background: var(--white);
+      border-radius: 1em;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.2s, transform 0.2s, background 0.3s ease;
+      min-width: 0;
+      position: relative;
+      animation: fadeInUp 1.2s;
+    }
+
+    .property-card:hover {
+      box-shadow: 0 8px 32px rgba(15, 52, 96, 0.13);
+      transform: translateY(-4px) scale(1.02);
+    }
+
+    [data-theme="dark"] .property-card:hover {
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .property-card.sold {
+      position: relative;
+    }
+
+    .property-card.sold .property-price {
+      display: none;
+    }
+
+    .property-card.sold .property-image::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(60, 60, 60, 0.65);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 2;
+      border-radius: inherit;
+    }
+
+    .property-card.sold .property-image:hover::after {
+      opacity: 1;
+    }
+
+    .sold-out-label {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      color: #fff;
+      font-size: 1.8em;
+      font-weight: 700;
+      letter-spacing: 2px;
+      background: rgba(30, 30, 30, 0.8);
+      padding: 0.5em 1.5em;
+      border-radius: 0.5em;
+      text-shadow: 0 2px 8px #222;
+      pointer-events: none;
+    }
+
+    .property-card.sold .property-image:hover .sold-out-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .property-image {
+      width: 100%;
+      height: 210px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      cursor: pointer;
+      transition: filter 0.3s ease;
+    }
+    
+
+    /* Dark mode image optimization for Bad Vilbel property */
+    [data-theme="dark"] .property-image[data-property="bad-vilbel-lohstr"] {
+      filter: brightness(1.1) contrast(1.05) saturate(1.1);
+    }
+
+    .property-price {
+      position: absolute;
+      left: 1em;
+      bottom: 1em;
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--primary);
+      font-size: 1.7em;
+      font-weight: 700;
+      padding: 0.3em 0.8em;
+      border-radius: 0.5em;
+      box-shadow: var(--shadow);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    [data-theme="dark"] .property-price {
+      background: rgba(26, 31, 46, 0.95);
+      color: var(--primary);
+    }
+
+    .property-sold {
+      position: absolute;
+      top: 1em;
+      left: 1em;
+      background: var(--accent);
+      color: var(--white);
+      font-size: 1.1em;
+      font-weight: 700;
+      padding: 0.3em 1em;
+      border-radius: 0.5em;
+      box-shadow: var(--shadow);
+      z-index: 2;
+    }
+
+    .property-content {
+      padding: 1.5em 1.2em 1.2em 1.2em;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .property-title {
+      font-size: 1.2em;
+      font-weight: 600;
+      margin-bottom: 0.5em;
+      color: var(--primary-dark);
+      transition: color 0.3s ease;
+    }
+
+    .property-location {
+      font-size: 1em;
+      color: var(--text-light);
+      margin-bottom: 1em;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      transition: color 0.3s ease;
+    }
+
+    .property-details {
+      display: flex;
+      gap: 1.5em;
+      margin-bottom: 1.2em;
+      flex-wrap: wrap;
+    }
+
+    .property-detail {
+      font-size: 0.95em;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      gap: 0.3em;
+      transition: color 0.3s ease;
+    }
+
+    .property-detail i {
+      color: var(--primary);
+      font-size: 1.1em;
+      transition: color 0.3s ease;
+    }
+
+    .property-card .view-details-btn {
+      background: var(--primary);
+      color: var(--white);
+      font-size: 1.1em;
+      font-weight: 600;
+      border: none;
+      border-radius: 0.5em;
+      padding: 0.8em 0;
+      cursor: pointer;
+      width: 100%;
+      margin-top: auto;
+      transition: background 0.2s;
+    }
+
+    .property-card .view-details-btn:hover {
+      background: var(--primary-dark);
+    }
+
+    /* All other sections maintain similar transition patterns */
+    .pm-section,
+    .mortgage-section,
+    .about-section,
+    .contact-section {
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .pm-section {
+      background: var(--white);
+      padding: 80px 0 60px 0;
+      margin-bottom: 0;
+      animation: fadeInUp 1s;
+    }
+
+    .pm-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .pm-title {
+      font-size: 2.3em;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 0.3em;
+      color: var(--primary-dark);
+      letter-spacing: -1px;
+      transition: color 0.3s ease;
+    }
+
+    .pm-subtitle {
+      text-align: center;
+      color: var(--accent);
+      font-size: 1.2em;
+      margin-bottom: 1.5em;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .pm-intro {
+      color: var(--text-light);
+      font-size: 1.1em;
+      margin-bottom: 1em;
+      text-align: center;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      transition: color 0.3s ease;
+    }
+
+    .pm-specialization {
+      text-align: center;
+      margin-bottom: 1.5em;
+    }
+
+    .pm-specialization-title {
+      font-size: 1.1em;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 0.7em;
+      transition: color 0.3s ease;
+    }
+
+    .pm-specialization-list {
+      display: inline-block;
+      text-align: left;
+      font-size: 1em;
+      color: var(--text-light);
+      margin-bottom: 0.7em;
+      padding-left: 1.2em;
+      transition: color 0.3s ease;
+    }
+
+    .pm-specialization-list li {
+      margin-bottom: 0.7em;
+      position: relative;
+      list-style: none;
+    }
+
+    .pm-specialization-list li:before {
+      content: "\f058";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      color: var(--primary);
+      margin-right: 0.7em;
+    }
+
+    .pm-benefits-title {
+      font-size: 1.1em;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 0.7em;
+      text-align: center;
+      transition: color 0.3s ease;
+    }
+
+    .pm-benefits-list {
+      font-size: 1em;
+      color: var(--text-light);
+      margin-bottom: 2em;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.2em;
+      transition: color 0.3s ease;
+    }
+
+    .pm-benefits-list li {
+      margin-bottom: 0.7em;
+      position: relative;
+      list-style: none;
+    }
+
+    .pm-benefits-list li:before {
+      content: "\2714";
+      color: var(--accent);
+      font-weight: bold;
+      margin-right: 0.7em;
+    }
+
+    .pm-services-title {
+      font-size: 1.2em;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 0.7em;
+      text-align: center;
+      transition: color 0.3s ease;
+    }
+
+    .pm-services-grid {
+      display: flex;
+      gap: 2em;
+      flex-wrap: wrap;
+      margin-bottom: 2em;
+      justify-content: center;
+    }
+
+    .pm-service-block {
+      background: var(--grey);
+      border-radius: 1em;
+      padding: 2em 1.5em;
+      min-width: 220px;
+      flex: 1 1 220px;
+      box-shadow: 0 4px 24px rgba(15, 52, 96, 0.07);
+      margin-bottom: 1em;
+      animation: fadeInUp 1.2s;
+    }
+
+    .pm-service-label {
+      font-size: 1.1em;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.7em;
+    }
+
+    .pm-service-list {
+      font-size: 1em;
+      color: var(--text-light);
+      margin-bottom: 0.7em;
+      padding-left: 1.2em;
+    }
+
+    .pm-service-list li {
+      margin-bottom: 0.7em;
+      position: relative;
+    }
+
+    .pm-service-list li:before {
+      content: "\f058";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      color: var(--primary);
+      margin-right: 0.7em;
+    }
+
+    .pm-for-title {
+      font-size: 1.1em;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 0.7em;
+      text-align: center;
+      transition: color 0.3s ease;
+    }
+
+    .pm-for-list {
+      font-size: 1em;
+      color: var(--text-light);
+      margin-bottom: 2em;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.2em;
+      transition: color 0.3s ease;
+    }
+
+    .pm-for-list li {
+      margin-bottom: 0.7em;
+      position: relative;
+      list-style: none;
+    }
+
+    .pm-for-list li:before {
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      margin-right: 0.7em;
+    }
+
+    .pm-for-list li:nth-child(1):before {
+      content: "\f015";
+      color: var(--primary);
+    }
+
+    .pm-for-list li:nth-child(2):before {
+      content: "\f0b1";
+      color: var(--primary);
+    }
+
+    .pm-for-list li:nth-child(3):before {
+      content: "\f0ac";
+      color: var(--primary);
+    }
+
+    .pm-personal-title {
+      font-size: 1.1em;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 0.7em;
+      text-align: center;
+      transition: color 0.3s ease;
+    }
+
+    .pm-personal-text {
+      font-size: 1em;
+      color: var(--text-light);
+      margin-bottom: 2em;
+      text-align: center;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      transition: color 0.3s ease;
+    }
+
+    .pm-cta {
+      text-align: center;
+      margin-bottom: 0;
+    }
+
+    .pm-cta-text {
+      font-size: 1.1em;
+      color: var(--primary-dark);
+      margin-bottom: 1em;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .pm-cta-btn {
+      background: var(--primary);
+      color: var(--white);
+      font-size: 1.1em;
+      font-weight: 600;
+      border: none;
+      border-radius: 0.5em;
+      padding: 1em 2.5em;
+      cursor: pointer;
+      transition: background 0.2s;
+      box-shadow: 0 2px 8px rgba(15, 52, 96, 0.07);
+    }
+
+    .pm-cta-btn:hover {
+      background: var(--primary-dark);
+    }
+
+    @media (max-width: 900px) {
+      .pm-services-grid {
+        flex-direction: column;
+        gap: 1em;
+      }
+      .pm-service-block {
+        min-width: 0;
+      }
+    }
+
+    /* Mortgage Brokerage Section */
+    .mortgage-section {
+      background: var(--white);
+      padding: 80px 0 60px 0;
+    }
+
+    .mortgage-title {
+      font-size: 2.3em;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 0.3em;
+      color: var(--primary-dark);
+      letter-spacing: -1px;
+      animation: fadeInUp 0.7s;
+    }
+
+    .mortgage-intro {
+      text-align: center;
+      color: var(--text-light);
+      font-size: 1.1em;
+      margin-bottom: 2em;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeInUp 1s;
+    }
+
+    .mortgage-columns {
+      display: flex;
+      gap: 2em;
+      max-width: 900px;
+      margin: 0 auto 2em auto;
+      flex-wrap: wrap;
+      animation: fadeInUp 1.2s;
+    }
+
+    .mortgage-benefits {
+      flex: 1 1 300px;
+      min-width: 220px;
+      padding: 2em 1em;
+    }
+
+    .mortgage-benefits ul {
+      padding-left: 1.2em;
+      margin: 0;
+      font-size: 1em;
+      color: var(--text-light);
+    }
+
+    .mortgage-benefits li {
+      margin-bottom: 1em;
+      position: relative;
+      list-style: none;
+    }
+
+    .mortgage-benefits li:before {
+      content: "\2714";
+      color: var(--accent);
+      font-weight: bold;
+      margin-right: 0.7em;
+    }
+
+    .mortgage-details-box {
+      flex: 1 1 300px;
+      min-width: 220px;
+      background: var(--grey);
+      border-radius: 1em;
+      padding: 2em 1.5em;
+      box-shadow: 0 4px 24px rgba(15, 52, 96, 0.07);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .mortgage-details-title {
+      font-size: 1.1em;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 1em;
+    }
+
+    .mortgage-details-list {
+      font-size: 1em;
+      color: var(--text-light);
+      margin-bottom: 1em;
+      padding-left: 1.2em;
+    }
+
+    .mortgage-details-list li {
+      margin-bottom: 0.7em;
+      position: relative;
+      list-style: decimal inside;
+    }
+
+    .mortgage-who-title {
+      font-size: 1.1em;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 0.7em;
+      text-align: center;
+    }
+
+    .mortgage-who-list {
+      font-size: 1em;
+      color: var(--text-light);
+      margin-bottom: 2em;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.2em;
+    }
+
+    .mortgage-who-list li {
+      margin-bottom: 0.7em;
+      position: relative;
+      list-style: none;
+    }
+
+    .mortgage-who-list li:before {
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      margin-right: 0.7em;
+    }
+
+    .mortgage-who-list li:nth-child(1):before {
+      content: "\f015";
+      color: var(--primary);
+    }
+
+    .mortgage-who-list li:nth-child(2):before {
+      content: "\f0b1";
+      color: var(--primary);
+    }
+
+    .mortgage-who-list li:nth-child(3):before {
+      content: "\f201";
+      color: var(--primary);
+    }
+
+    .mortgage-who-list li:nth-child(4):before {
+      content: "\f021";
+      color: var(--primary);
+    }
+
+    .mortgage-experience-title {
+      font-size: 1.1em;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 0.7em;
+      text-align: center;
+    }
+
+    .mortgage-experience-text {
+      font-size: 1em;
+      color: var(--text-light);
+      margin-bottom: 2em;
+      text-align: center;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .mortgage-cta-btn {
+      display: block;
+      margin: 2em auto 0 auto;
+      background: var(--primary);
+      color: var(--white);
+      font-size: 1.1em;
+      font-weight: 600;
+      border: none;
+      border-radius: 0.5em;
+      padding: 1em 2.5em;
+      cursor: pointer;
+      transition: background 0.2s;
+      box-shadow: 0 2px 8px rgba(15, 52, 96, 0.07);
+    }
+
+    .mortgage-cta-btn:hover {
+      background: var(--primary-dark);
+    }
+
+    @media (max-width: 900px) {
+      .mortgage-columns {
+        flex-direction: column;
+        gap: 1em;
+      }
+      .mortgage-benefits,
+      .mortgage-details-box {
+        min-width: 0;
+      }
+    }
+
+    /* About Section */
+    .about-section {
+      background: var(--white);
+      padding: 80px 0 60px 0;
+    }
+
+    .about-columns {
+      display: flex;
+      gap: 2em;
+      justify-content: center;
+      margin-bottom: 2em;
+      flex-wrap: wrap;
+      animation: fadeInUp 1.2s;
+    }
+
+    .about-col {
+      background: var(--grey);
+      border-radius: 1em;
+      padding: 2em 1.5em;
+      min-width: 220px;
+      flex: 1 1 220px;
+      text-align: center;
+    }
+
+    .about-col-title {
+      font-size: 1.8em;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.7em;
+    }
+
+    .clickable-title {
+      cursor: pointer;
+      transition: color 0.3s ease, transform 0.2s ease;
+    }
+
+    .clickable-title:hover {
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .about-col-text {
+      font-size: 1.1em;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    .about-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+      flex-wrap: wrap;
+      margin-top: 2em;
+      animation: fadeInUp 1.3s;
+    }
+
+    .about-stat-block {
+      background: var(--grey);
+      border-radius: 1em;
+      padding: 2em 2em 1.5em 2em;
+      min-width: 180px;
+      text-align: center;
+      flex: 1 1 180px;
+      margin-bottom: 1em;
+    }
+
+    .about-stat-icon {
+      font-size: 2.5em;
+      color: var(--primary);
+      margin-bottom: 0.5em;
+    }
+
+    .about-stat-number {
+      font-size: 3.5em;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.3em;
+      letter-spacing: -2px;
+    }
+
+    .about-stat-label {
+      font-size: 1em;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    @media (max-width: 900px) {
+      .about-columns {
+        flex-direction: column;
+        gap: 1em;
+      }
+      .about-stats {
+        flex-direction: column;
+        gap: 1em;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .about-col-title {
+        font-size: 1.2em;
+      }
+      .about-stat-number {
+        font-size: 2em;
+      }
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background: var(--grey);
+      padding: 80px 0 60px 0;
+    }
+
+    .contact-container {
+      display: flex;
+      gap: 3em;
+      max-width: 900px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+
+    .contact-form-area {
+      flex: 2 1 350px;
+      min-width: 280px;
+    }
+
+    .contact-title {
+      font-size: 2.3em;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.5em;
+      text-align: left;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2em;
+      margin-top: 1em;
+    }
+
+    .contact-form label {
+      font-size: 1em;
+      font-weight: 500;
+      color: var(--primary-dark);
+      margin-bottom: 0.3em;
+      display: block;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      font-size: 1em;
+      padding: 1em;
+      border-radius: 0.5em;
+      border: 1px solid #d2d2d2;
+      background: var(--white);
+      color: var(--text);
+      outline: none;
+      width: 100%;
+      margin-bottom: 0.5em;
+      resize: none;
+      transition: border-color 0.2s;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--primary);
+    }
+
+    .contact-form textarea {
+      min-height: 120px;
+      max-height: 240px;
+    }
+
+    .contact-form button {
+      background: var(--primary);
+      color: var(--white);
+      font-size: 1.1em;
+      font-weight: 600;
+      border: none;
+      border-radius: 0.5em;
+      padding: 0.9em 0;
+      cursor: pointer;
+      width: 180px;
+      text-align: center;
+      transition: background 0.2s;
+      margin-top: 0.5em;
+    }
+
+    .contact-form button:hover {
+      background: var(--primary-dark);
+    }
+
+    .contact-form button:disabled {
+      background: var(--grey);
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+
+    /* Form Messages */
+    .form-message {
+      margin: 1.5em 0;
+      padding: 1em;
+      border-radius: 0.5em;
+      font-weight: 500;
+      text-align: center;
+      animation: slideDown 0.3s ease-out;
+    }
+
+    .form-message-success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    .form-message-error {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f1b0b7;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Dark mode support for messages */
+    [data-theme="dark"] .form-message-success {
+      background: #1e4620;
+      color: #a3cfab;
+      border-color: #2d5a31;
+    }
+
+    [data-theme="dark"] .form-message-error {
+      background: #4a1e20;
+      color: #f5a3ab;
+      border-color: #5a2d31;
+    }
+
+    /* Honeypot field - completely hidden from users */
+    .honeypot-field {
+      position: absolute !important;
+      left: -9999px !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+      height: 0 !important;
+      width: 0 !important;
+      overflow: hidden !important;
+    }
+
+    .contact-info-area {
+      flex: 1 1 220px;
+      min-width: 220px;
+      margin-top: 2em;
+    }
+
+    .contact-info-block {
+      margin-bottom: 1.5em;
+      color: var(--text-light);
+      font-size: 1em;
+    }
+
+    .contact-info-block i {
+      color: var(--primary);
+      margin-right: 0.7em;
+      font-size: 1.2em;
+      vertical-align: middle;
+    }
+
+    @media (max-width: 900px) {
+      .contact-container {
+        flex-direction: column;
+        gap: 2em;
+      }
+      .contact-info-area {
+        margin-top: 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .contact-title {
+        font-size: 1.3em;
+      }
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--primary-dark);
+      color: var(--white);
+      padding: 40px 0 20px 0;
+      font-size: 1em;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2em;
+      justify-content: space-between;
+    }
+
+    .footer-block {
+      flex: 1 1 200px;
+      margin-bottom: 2em;
+      min-width: 180px;
+    }
+
+    .footer-block h3 {
+      font-size: 1.2em;
+      font-weight: 700;
+      margin-bottom: 1em;
+      color: var(--white);
+    }
+
+    .footer-block ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-block ul li {
+      margin-bottom: 0.7em;
+    }
+
+    .footer-block a {
+      color: #cfd8dc;
+      transition: color 0.2s;
+    }
+
+    .footer-block a:hover {
+      color: var(--accent);
+    }
+
+    /* Footer Contact Styles */
+    .footer-contact-info {
+      margin-top: 1em;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1em;
+      font-size: 0.95em;
+      line-height: 1.4;
+    }
+
+    .footer-contact-item i {
+      color: var(--accent);
+      margin-right: 0.75em;
+      margin-top: 0.1em;
+      min-width: 1.2em;
+      font-size: 1.1em;
+    }
+
+    .footer-contact-item span {
+      color: #cfd8dc;
+    }
+
+    .footer-newsletter input {
+      padding: 0.7em;
+      border-radius: 0.5em 0 0 0.5em;
+      border: none;
+      font-size: 1em;
+      width: 70%;
+      margin-right: -4px;
+      outline: none;
+    }
+
+    .footer-newsletter button {
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      border-radius: 0 0.5em 0.5em 0;
+      padding: 0.7em 1.2em;
+      font-size: 1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .footer-newsletter button:hover {
+      background: var(--primary);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #263245;
+      margin-top: 2em;
+      padding-top: 1.2em;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.95em;
+      color: #cfd8dc;
+    }
+
+    .footer-bottom a {
+      color: #cfd8dc;
+      margin-left: 1.2em;
+      transition: color 0.2s;
+    }
+
+    .footer-bottom a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 900px) {
+      .footer-container {
+        flex-direction: column;
+        gap: 1em;
+      }
+      .footer-block {
+        margin-bottom: 1em;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .footer-bottom {
+        flex-direction: column;
+        gap: 0.7em;
+        text-align: center;
+      }
+      .footer-block {
+        min-width: 0;
+      }
+    }
+
+    /* Property Details Modal */
+    .modal-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(15, 52, 96, 0.7);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.5s;
+    }
+    .modal-bg.active {
+        display: flex;
+    }
+
+    [data-theme="dark"] .modal-bg {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .modal-content {
+      background: var(--white);
+      border-radius: 1em;
+      max-width: 700px;
+      width: 95vw;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow);
+      padding: 2em;
+      position: relative;
+      animation: fadeInUp 0.7s;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1em;
+      right: 1em;
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      border-radius: 50%;
+      width: 2em;
+      height: 2em;
+      font-size: 1.2em;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+
+    .modal-title {
+      font-size: 2em;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.5em;
+      transition: color 0.3s ease;
+    }
+
+    .modal-price {
+      font-size: 1.5em;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5em;
+      transition: color 0.3s ease;
+    }
+
+    .modal-address {
+      font-size: 1.1em;
+      color: var(--text-light);
+      margin-bottom: 1em;
+    }
+
+    .modal-details {
+      display: flex;
+      gap: 2em;
+      margin-bottom: 1em;
+      flex-wrap: wrap;
+    }
+
+    .modal-detail {
+      font-size: 1em;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      gap: 0.3em;
+    }
+
+    .modal-description {
+      font-size: 1.1em;
+      color: var(--text);
+      margin-bottom: 1em;
+      line-height: 1.7;
+      transition: color 0.3s ease;
+    }
+
+    .modal-contact {
+      font-size: 1em;
+      color: var(--primary-dark);
+      margin-bottom: 1em;
+    }
+
+    .modal-contact i {
+      color: var(--primary);
+      margin-right: 0.5em;
+    }
+
+    /* Modal Gallery & Lightbox */
+    .modal-gallery {
+      display: flex;
+      gap: 1em;
+      margin-bottom: 1.5em;
+      overflow-x: auto;
+    }
+
+    .modal-gallery img {
+      border-radius: 0.5em;
+      width: 180px;
+      height: 120px;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(15, 52, 96, 0.07);
+      cursor: pointer;
+      transition: box-shadow 0.2s;
+    }
+
+    .modal-gallery img:hover {
+      box-shadow: 0 4px 16px rgba(15, 52, 96, 0.15);
+    }
+
+    /* Lightbox Overlay */
+    .lightbox-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(15, 52, 96, 0.92);
+      z-index: 10000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.5s;
+    }
+
+    .lightbox-bg.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-img {
+      max-width: 80vw;
+      max-height: 80vh;
+      border-radius: 1em;
+      box-shadow: 0 8px 32px rgba(15, 52, 96, 0.28);
+      background: var(--white);
+    }
+
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      border-radius: 50%;
+      width: 2.5em;
+      height: 2.5em;
+      font-size: 1.3em;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      opacity: 0.9;
+    }
+
+    .lightbox-close {
+      top: 1em;
+      right: 1em;
+      transform: none;
+    }
+
+    .lightbox-prev {
+      left: -3em;
+    }
+
+    .lightbox-next {
+      right: -3em;
+    }
+
+    @media (max-width: 900px) {
+      .lightbox-prev {
+        left: 0.5em;
+      }
+      .lightbox-next {
+        right: 0.5em;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .lightbox-img {
+        max-width: 95vw;
+        max-height: 60vh;
+      }
+      .lightbox-prev,
+      .lightbox-next {
+        top: 90%;
+        left: 30%;
+        right: 30%;
+        transform: none;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Language switcher active state */
+    .lang-toggle.active {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    /* Legal Sections (Privacy Policy, Impressum) */
+    .legal-section {
+      padding: 60px 0;
+      background: var(--white);
+      color: var(--text);
+    }
+
+    .legal-section h1 {
+      font-size: 2.5em;
+      font-weight: 700;
+      margin-bottom: 0.5em;
+      text-align: center;
+      position: relative;
+      display: inline-block;
+    }
+
+    .legal-section h1:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background: var(--primary);
+    }
+
+    .legal-section h2 {
+      font-size: 1.8em;
+      font-weight: 600;
+      margin-top: 1.5em;
+      margin-bottom: 0.7em;
+      color: var(--primary-dark);
+    }
+
+    .legal-section p,
+    .legal-section ul {
+      font-size: 1em;
+      color: var(--text);
+      margin-bottom: 1em;
+      line-height: 1.6;
+    }
+
+    .legal-section ul {
+      padding-left: 1.5em;
+      list-style-type: disc;
+    }
+
+    .legal-section strong {
+      color: var(--primary);
+    }
+
+    .legal-section a {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .legal-section a:hover {
+      color: var(--primary);
+    }
+
+    @media (max-width: 600px) {
+      .legal-section h1 {
+        font-size: 2em;
+      }
+      .legal-section h2 {
+        font-size: 1.5em;
+      }
+      .legal-section p,
+      .legal-section ul {
+        font-size: 0.9em;
+      }
+    }
+  .legal-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  .privacy-policy-section {
+    background: var(--white);
+    color: var(--text);
+    padding: 60px 0;
+  }
+  .impressum-section {
+    background: var(--grey);
+    color: var(--text);
+    padding: 60px 0;
+  }
+  .impressum-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Flip Card Animations */
+  .pm-services-grid,
+  .mortgage-services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+  }
+
+  .flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 350px;
+    perspective: 1000px;
+    cursor: pointer;
+  }
+
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s ease-in-out;
+    transform-style: preserve-3d;
+  }
+
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    box-shadow: var(--flip-card-shadow);
+    overflow: hidden;
+    transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .flip-card-front {
+    background: var(--flip-card-front-bg);
+    color: var(--flip-card-front-text);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .flip-card-back {
+    background: var(--flip-card-back-bg);
+    color: var(--flip-card-back-text);
+    transform: rotateY(180deg);
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  .flip-card-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    color: var(--flip-card-icon-color);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: color 0.3s ease;
+  }
+
+  .flip-card-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0;
+    text-align: center;
+    line-height: 1.3;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    color: var(--flip-card-front-text);
+    transition: color 0.3s ease;
+  }
+
+  .flip-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--flip-card-overlay);
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+  }
+
+  .flip-card-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--flip-card-overlay);
+    transition: background 0.3s ease;
+  }
+
+  .flip-card-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .flip-card-checklist li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    z-index: 1;
+  }
+
+  .flip-card-checklist i {
+    color: #27ae60;
+    margin-right: 0.75rem;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    transition: color 0.3s ease;
+  }
+
+  /* Dark mode checklist icon colors */
+  [data-theme="dark"] .flip-card-checklist i {
+    color: #4a9eff;
+  }
+
+  
+  /* Background Images for Property Management Cards */
+  .tenant-bg {
+    background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+  }
+
+  .financial-bg {
+    background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+  }
+
+  .technical-bg {
+    background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+  }
+
+  .overview-bg {
+    background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+  }
+
+  /* Background Images for Mortgage Cards */
+  .financing-bg {
+    background-image: url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+  }
+
+  .advice-bg {
+    background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+  }
+
+  .construction-bg {
+    background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+  }
+
+  .solutions-bg {
+    background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+  }
+
+  /* Enhanced overlay support for theme switching */
+  [data-theme="light"] .flip-card-overlay::before {
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  [data-theme="dark"] .flip-card-overlay::before {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  /* Ensure text remains readable in both themes */
+  .flip-card-checklist,
+  .flip-card-checklist li {
+    position: relative;
+    z-index: 2;
+  }
+
+  .mortgage-services-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 2rem 0 1rem 0;
+    color: var(--text);
+  }
+
+  /* Image Slider Styles */
+  .image-slider {
+    position: relative;
+    max-width: 100%;
+    margin: 2rem 0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+
+  .slider-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+  }
+
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+    transform: translateX(100%);
+  }
+
+  .slide.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .slide.prev {
+    transform: translateX(-100%);
+  }
+
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+    transition: filter 0.3s ease;
+  }
+
+  .slide-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .slide-text h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .slide-text p {
+    font-size: 1rem;
+    margin: 0;
+    opacity: 0.9;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  .slider-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    z-index: 10;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+  .dot.active {
+    background: white;
+    transform: scale(1.2);
+  }
+
+  .dot:hover {
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+  /* Dark mode adjustments for sliders */
+  [data-theme="dark"] .slide-text {
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+  }
+
+  [data-theme="dark"] .slide img {
+    filter: brightness(0.6);
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 1024px) {
+    .pm-services-grid,
+    .mortgage-services-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .pm-services-grid,
+    .mortgage-services-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .flip-card {
+      height: 320px;
+    }
+    
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    
+    /* Mobile slider adjustments */
+    .slider-container {
+      height: 250px;
+    }
+    
+    .slide-text {
+      padding: 1.5rem 1rem;
+    }
+    
+    .slide-text h3 {
+      font-size: 1.2rem;
+    }
+    
+    .slide-text p {
+      font-size: 0.9rem;
+    }
+    
+    /* Fix blurry text on mobile */
+    .flip-card-front,
+    .flip-card-back,
+    .flip-card-title,
+    .flip-card-checklist li {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+    
+    .flip-card-icon {
+      font-size: 3rem;
+    }
+    
+    .flip-card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+    
+    .flip-card-overlay {
+      padding: 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .flip-card {
+      height: 280px;
+    }
+    
+    /* Enhanced text sharpness for small screens */
+    .flip-card-front,
+    .flip-card-back,
+    .flip-card-title,
+    .flip-card-checklist li {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+    
+    .flip-card-checklist li {
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+    }
+  }
+  </style>
+</head>
+<body>
+  <!-- Header Navigation -->
+  <nav class="header-nav">
+    <div class="nav-container">
+      <div class="nav-logo">Immobilien Ghumman</div>
+      <div class="nav-links">
+        <a href="#featured-properties" class="nav-link nav-scroll" data-scroll="featured-properties" data-i18n="nav.featured_properties">Properties</a>
+        <a href="#pm-section" class="nav-link nav-scroll" data-scroll="pm-section" data-i18n="nav.property_management">Property Management</a>
+        <a href="#mortgage-section" class="nav-link nav-scroll" data-scroll="mortgage-section" data-i18n="nav.mortgage_brokerage">Mortgage Brokerage</a>
+        <a href="#about-section" class="nav-link nav-scroll" data-scroll="about-section" data-i18n="nav.about_us">About Us</a>
+        <a href="#contact-section" class="nav-link nav-scroll" data-scroll="contact-section" data-i18n="nav.contact_us">Contact Us</a>
+      </div>
+      <div class="nav-actions">
+        <button class="lang-toggle" id="lang-toggle">
+          <span id="lang-display">EN</span>
+        </button>
+        <button class="dark-mode-toggle" id="dark-mode-toggle" title="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+        <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hamburger Menu -->
+  <div class="nav-overlay" id="nav-overlay"></div>
+  <div class="nav-menu" id="nav-menu">
+    <button class="nav-menu-close" id="nav-menu-close" title="Close menu">
+      <i class="fas fa-times"></i>
+    </button>
+    
+      <a href="#featured-properties" class="nav-link nav-scroll nav-properties" data-scroll="featured-properties" data-i18n="nav.properties">Properties</a>
+      <a href="#pm-section" class="nav-link nav-scroll" data-scroll="pm-section" data-i18n="nav.property_management">Property Management</a>
+      <a href="#mortgage-section" class="nav-link nav-scroll" data-scroll="mortgage-section" data-i18n="nav.mortgage_brokerage">Mortgage Brokerage</a>
+      <a href="#about-section" class="nav-link nav-scroll" data-scroll="about-section" data-i18n="nav.about_us">About Us</a>
+      <a href="#contact-section" class="nav-link nav-scroll" data-scroll="contact-section" data-i18n="nav.contact_us">Contact Us</a>
+    </div>
+    <div class="nav-menu-actions">
+      <button class="lang-toggle" id="lang-toggle-mobile">
+        <span id="lang-display-mobile">EN</span>
+      </button>
+      <button class="dark-mode-toggle" id="dark-mode-toggle-mobile" title="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <h1 class="hero-title" data-i18n="hero.title">Discover Your Dream Home</h1>
+      <form class="hero-searchbar" id="property-search-form">
+         <label for="" class="" data-i18n=""></label>
+        <select id="property-location" title="Location">
+          <option value="" data-i18n="hero.location">Location</option>
+          <option value="Bad Vilbel">Bad Vilbel</option>
+          <option value="Schöneck">Schöneck</option>
+          <!-- Add more locations if needed, but exclude Altenstadt, Karben, Petterweil, Rüsselsheim -->
+        </select>
+        <button type="submit" data-i18n="hero.explore_btn">Explore Our Properties</button>
+      </form>
+    </div>
+  <section class="container" id="featured-properties">
+        
+
+  <!-- Featured Properties -->
+  <section class="container" id="featured-properties">
+    <h2 class="section-title" data-i18n="properties.title">Featured Properties</h2>
+    <div class="section-subtitle" data-i18n="properties.subtitle">
+      Explore apartments and houses in Bad Vilbel and Schöneck.
+    </div>
+    <div class="properties-grid" id="properties-grid">
+      <!-- Properties will be rendered here by JS -->
+    </div>
+  </section>
+
+  <!-- Property Management Section -->
+  <section class="pm-section" id="pm-section">
+    <div class="pm-container">
+      <div class="pm-title" data-i18n="pm.title">
+      Property Management
+      </div>
+      <div class="pm-subtitle" data-i18n="pm.subtitle"></div>
+      <div class="pm-intro" data-i18n="pm.intro">
+        Do you own one or more rental properties and want to stop worrying about the daily hassle? We take care of everything – legally compliant, cost-effective, and with personal dedication.
+      </div>
+      <div class="pm-specialization">
+        <div class="pm-specialization-title" data-i18n="pm.specialization_title">Our Specialization</div>
+        <ul class="pm-specialization-list">
+          <li data-i18n="pm.specialization_list_1">Rental properties with a single owner</li>
+          <li data-i18n="pm.specialization_list_2">No condominiums – 100% rental property management</li>
+          <li data-i18n="pm.specialization_list_3">From single apartment buildings to small complexes – we handle itall</li>
+        </ul>
+      </div>
+      <div class="pm-benefits-title" data-i18n="pm.benefits_title">Your Benefits</div>
+      <ul class="pm-benefits-list">
+        <li data-i18n="pm.benefits_list_1">Full-service property management</li>
+        <li data-i18n="pm.benefits_list_2">No stress with tenants or maintenance</li>
+        <li data-i18n="pm.benefits_list_3">Reliable income through secure rental processes</li>
+        <li data-i18n="pm.benefits_list_4">Value preservation through ongoing upkeep</li>
+        <li data-i18n="pm.benefits_list_5">Direct contact – no call centers</li>
+        <li data-i18n="pm.benefits_list_6">100% focus on rental management – no WEG complexities</li>
+      </ul>
+      <div class="pm-services-title" data-i18n="pm.services_title">Our Services at a Glance</div>
+      <div class="pm-services-grid">
+        <!-- Tenant Management Flip Card -->
+        <div class="flip-card" data-service="tenant">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-card-icon">
+          <i class="fas fa-users"></i>
+              </div>
+              <h3 class="flip-card-title" data-i18n="pm.tenant_management_title">Tenant Management</h3>
+            </div>
+            <div class="flip-card-back tenant-bg">
+              <div class="flip-card-overlay">
+          <ul class="flip-card-checklist">
+            <li><i class="fas fa-check"></i> <span data-i18n="pm.tenant_management_list_1">Finding tenants incl. credit checks</span></li>
+            <li><i class="fas fa-check"></i> <span data-i18n="pm.tenant_management_list_2">Lease agreements & property handovers</span></li>
+            <li><i class="fas fa-check"></i> <span data-i18n="pm.tenant_management_list_3">Ongoing tenant communication</span></li>
+            <li><i class="fas fa-check"></i> <span data-i18n="pm.tenant_management_list_4">Legal rent increases</span></li>
+          </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Financial Management Flip Card -->
+        <div class="flip-card" data-service="financial">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-card-icon">
+          <i class="fas fa-dollar-sign"></i>
+              </div>
+              <h3 class="flip-card-title" data-i18n="pm.financial_management_title">Financial Management</h3>
+            </div>
+            <div class="flip-card-back financial-bg">
+              <div class="flip-card-overlay">
+          <ul class="flip-card-checklist">
+            <li><i class="fas fa-check"></i> <span data-i18n="pm.financial_management_list_1">Budget planning & monitoring</span></li>
+            <li><i class="fas fa-check"></i> <span data-i18n="pm.financial_management_list_2">Coordinating skilled tradespeople</span></li>
+            <li><i class="fas fa-check"></i> <span data-i18n="pm.financial_management_list_3">Full documentation of all actions</span></li>
+            <li><i class="fas fa-check"></i> <span data-i18n="pm.financial_management_list_4">Quality assurance & inspections</span></li>
+          </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical Management Flip Card -->
+        <div class="flip-card" data-service="technical">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-card-icon">
+          <i class="fas fa-tools"></i>
+              </div>
+              <h3 class="flip-card-title" data-i18n="pm.technical_maintenance_title">Technical Management</h3>
+            </div>
+            <div class="flip-card-back technical-bg">
+              <div class="flip-card-overlay">
+          <ul class="flip-card-checklist">
+            <li><i class="fas fa-check"></i> <span data-i18n="pm.technical_maintenance_list_1">Organizing repairs & servicing</span></li>
+            <li><i class="fas fa-check"></i> <span data-i18n="pm.technical_maintenance_list_2">Coordinating skilled tradespeople</span></li>
+            <li><i class="fas fa-check"></i> <span data-i18n="pm.technical_maintenance_list_3">Full documentation of all actions</span></li>
+            <li><i class="fas fa-check"></i> <span data-i18n="pm.technical_maintenance_list_4">Quality assurance & inspections</span></li>
+          </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Professional Property Management Overview Flip Card -->
+        <div class="flip-card" data-service="overview">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-card-icon">
+                <i class="fas fa-building"></i>
+              </div>
+              <h3 class="flip-card-title" data-i18n="pm.overview_title">Professional Property Management</h3>
+            </div>
+            <div class="flip-card-back overview-bg">
+              <div class="flip-card-overlay">
+                <ul class="flip-card-checklist">
+                  <li><i class="fas fa-check"></i> <span data-i18n="pm.overview_list_1">Complete property oversight</span></li>
+                  <li><i class="fas fa-check"></i> <span data-i18n="pm.overview_list_2">Professional tenant relations</span></li>
+                  <li><i class="fas fa-check"></i> <span data-i18n="pm.overview_list_3">Financial transparency</span></li>
+                  <li><i class="fas fa-check"></i> <span data-i18n="pm.overview_list_4">Maintenance coordination</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pm-for-title" data-i18n="pm.who_we_work_with_title" style="font-size: 1.5em;">Who We Work With</div>
+      
+      <!-- Image Slider for Who We Work With -->
+      <div class="image-slider pm-slider" id="pm-slider">
+        <div class="slider-container">
+          <div class="slide active">
+            <img src="https://images.pexels.com/photos/280222/pexels-photo-280222.jpeg" alt="Private Landlords">
+            <div class="slide-text">
+              <h3 data-i18n="pm.who_we_work_with_list_1">Private Landlords</h3>
+              <p data-i18n="pm.slide1_desc">Professional management for individual property owners</p>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Real Estate Investors">
+            <div class="slide-text">
+              <h3 data-i18n="pm.who_we_work_with_list_2">Real Estate Investors</h3>
+              <p data-i18n="pm.slide2_desc">Comprehensive portfolio management solutions</p>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="International Property Owners">
+            <div class="slide-text">
+              <h3 data-i18n="pm.who_we_work_with_list_3">International Property Owners</h3>
+              <p data-i18n="pm.slide3_desc">Remote property management with full transparency</p>
+            </div>
+          </div>
+        </div>
+        <div class="slider-dots">
+          <span class="dot active" data-slide="0"></span>
+          <span class="dot" data-slide="1"></span>
+          <span class="dot" data-slide="2"></span>
+        </div>
+      </div>
+      <div class="pm-personal-title" data-i18n="pm.trust_title">
+        Trust Built on Structure and Communication
+      </div>
+      <div class="pm-personal-text" data-i18n="pm.trust_text">
+        We prioritize open, reliable communication with owners and tenants.
+        This keeps your property stable, valuable, and profitable long-term.
+      </div>
+      <div class="pm-cta">
+        <div class="pm-cta-text" data-i18n="pm.cta_text">
+          Want to hand off your rental property to professionals?
+        </div>
+        <button class="pm-cta-btn" id="pm-cta-btn" data-i18n="pm.cta_btn">
+          → Get in touch for a free consultation
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mortgage Brokerage Section -->
+  <section class="mortgage-section" id="mortgage-section">
+    <div class="container">
+      <h2 class="mortgage-title" data-i18n="mortgage.title">
+        Real Estate Financing – Independent & Personal
+      </h2>
+      <div class="mortgage-intro" data-i18n="mortgage.intro">
+        Buying a home or investing in property? We help you find the ideal
+        financing solution – tailored to your life, goals, and budget.
+      </div>
+      <div class="mortgage-columns">
+        <div class="mortgage-benefits">
+          <ul>
+            <li data-i18n="mortgage.benefits_list_1">Honest advice with no bank bias</li>
+            <li data-i18n="mortgage.benefits_list_2">Compare 400+ lenders for the best terms</li>
+            <li data-i18n="mortgage.benefits_list_3">Tailored loan concepts incl. subsidies & flexibility</li>
+            <li data-i18n="mortgage.benefits_list_4">Free consultation</li>
+            <li data-i18n="mortgage.benefits_list_5">Digital processes with personal support</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Mortgage Services Flip Cards -->
+      <div class="mortgage-services-title" data-i18n="mortgage.services_title">Our Services in Detail</div>
+      <div class="mortgage-services-grid">
+        <!-- Real Estate Financing Flip Card -->
+        <div class="flip-card" data-service="financing">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-card-icon">
+                <i class="fas fa-home"></i>
+              </div>
+              <h3 class="flip-card-title" data-i18n="mortgage.financing_title">Real Estate Financing</h3>
+            </div>
+            <div class="flip-card-back financing-bg">
+              <div class="flip-card-overlay">
+                <ul class="flip-card-checklist">
+                  <li><i class="fas fa-check"></i> <span data-i18n="mortgage.financing_list_1">Purchase financing solutions</span></li>
+                  <li><i class="fas fa-check"></i> <span data-i18n="mortgage.financing_list_2">Investment property loans</span></li>
+                  <li><i class="fas fa-check"></i> <span data-i18n="mortgage.financing_list_3">Refinancing options</span></li>
+                  <li><i class="fas fa-check"></i> <span data-i18n="mortgage.financing_list_4">Government subsidies included</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Honest Advice Flip Card -->
+        <div class="flip-card" data-service="advice">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-card-icon">
+                <i class="fas fa-handshake"></i>
+              </div>
+              <h3 class="flip-card-title" data-i18n="mortgage.advice_title">Honest Advice</h3>
+            </div>
+            <div class="flip-card-back advice-bg">
+              <div class="flip-card-overlay">
+                <ul class="flip-card-checklist">
+                  <li><i class="fas fa-check"></i> <span data-i18n="mortgage.advice_list_1">Independent consultation</span></li>
+                  <li><i class="fas fa-check"></i> <span data-i18n="mortgage.advice_list_2">No bank bias or hidden fees</span></li>
+                  <li><i class="fas fa-check"></i> <span data-i18n="mortgage.advice_list_3">Transparent comparison process</span></li>
+                  <li><i class="fas fa-check"></i> <span data-i18n="mortgage.advice_list_4">Client-focused recommendations</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Construction Support Flip Card -->
+        <div class="flip-card" data-service="construction">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-card-icon">
+                <i class="fas fa-hammer"></i>
+              </div>
+              <h3 class="flip-card-title" data-i18n="mortgage.construction_title">Construction Support</h3>
+            </div>
+            <div class="flip-card-back construction-bg">
+              <div class="flip-card-overlay">
+                <ul class="flip-card-checklist">
+                  <li><i class="fas fa-check"></i> <span data-i18n="mortgage.construction_list_1">New build financing</span></li>
+                  <li><i class="fas fa-check"></i> <span data-i18n="mortgage.construction_list_2">Construction loan management</span></li>
+                  <li><i class="fas fa-check"></i> <span data-i18n="mortgage.construction_list_3">Progress payment coordination</span></li>
+                  <li><i class="fas fa-check"></i> <span data-i18n="mortgage.construction_list_4">Project oversight support</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comprehensive Solutions Flip Card -->
+        <div class="flip-card" data-service="solutions">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-card-icon">
+                <i class="fas fa-clipboard-check"></i>
+              </div>
+              <h3 class="flip-card-title" data-i18n="mortgage.solutions_title">Comprehensive Solutions</h3>
+            </div>
+            <div class="flip-card-back solutions-bg">
+              <div class="flip-card-overlay">
+                <ul class="flip-card-checklist">
+                  <li><i class="fas fa-check"></i> <span data-i18n="mortgage.solutions_list_1">400+ lender comparison</span></li>
+                  <li><i class="fas fa-check"></i> <span data-i18n="mortgage.solutions_list_2">Best interest rate guarantee</span></li>
+                  <li><i class="fas fa-check"></i> <span data-i18n="mortgage.solutions_list_3">Self-employed friendly options</span></li>
+                  <li><i class="fas fa-check"></i> <span data-i18n="mortgage.solutions_list_4">Digital process with personal touch</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mortgage-who-title" data-i18n="mortgage.who_benefits_title" style="font-size: 1.5em;">Who Benefits from Our Service</div>
+
+      
+      <!-- Image Slider for Who Benefits -->
+      <div class="image-slider mortgage-slider" id="mortgage-slider">
+        <div class="slider-container">
+          <div class="slide active">
+            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Homebuyers & Builders">
+            <div class="slide-text">
+              <h3 data-i18n="mortgage.who_benefits_list_1">Homebuyers & Builders</h3>
+              <p data-i18n="mortgage.slide1_desc">First-time buyers and construction financing</p>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Property Investors">
+            <div class="slide-text">
+              <h3 data-i18n="mortgage.who_benefits_list_2">Property Investors</h3>
+              <p data-i18n="mortgage.slide2_desc">Investment property financing solutions</p>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Self-employed Professionals">
+            <div class="slide-text">
+              <h3 data-i18n="mortgage.who_benefits_list_3">Self-employed Professionals</h3>
+              <p data-i18n="mortgage.slide3_desc">Specialized financing for entrepreneurs</p>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Refinancing Owners">
+            <div class="slide-text">
+              <h3 data-i18n="mortgage.who_benefits_list_4">Refinancing Owners</h3>
+              <p data-i18n="mortgage.slide4_desc">Optimized refinancing and debt restructuring</p>
+            </div>
+          </div>
+        </div>
+        <div class="slider-dots">
+          <span class="dot active" data-slide="0"></span>
+          <span class="dot" data-slide="1"></span>
+          <span class="dot" data-slide="2"></span>
+          <span class="dot" data-slide="3"></span>
+        </div>
+      </div>
+      <div class="mortgage-experience-title" data-i18n="mortgage.experience_title">
+        Experience, Transparency, Trust
+      </div>
+      <div class="mortgage-experience-text" data-i18n="mortgage.experience_text">
+        Real estate financing is more than numbers – it's about life planning,
+        security, and your future. We're here to guide you with honesty and
+        expertise.
+      </div>
+      <button class="mortgage-cta-btn" id="mortgage-cta-btn" data-i18n="mortgage.cta_btn">
+        → Request a call
+      </button>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section" id="about-section">
+    <div class="container">
+      <h2 class="section-title" data-i18n="about.title">About us</h2>
+      <div class="about-columns">
+        <div class="about-col">
+          <div class="about-col-title clickable-title" data-scroll="featured-properties" data-i18n="about.col1_title">Immobilien Ghumman</div>
+          <div class="about-col-text" data-i18n="about.col1_text">
+            Experience the joy of living in thoughtfully designed homes and
+            apartments. Our properties offer comfort, style, and a vibrant
+            community atmosphere.
+          </div>
+        </div>
+        <div class="about-col">
+          <div class="about-col-title clickable-title" data-scroll="pm-section" data-i18n="about.col2_title">Property Management</div>
+          <div class="about-col-text" data-i18n="about.col2_text">
+            Professional management for rental apartments – personal,
+            transparent, and reliable. We handle all aspects of
+            administration, maintenance, and tenant relations.
+          </div>
+        </div>
+        <div class="about-col">
+          <div class="about-col-title clickable-title" data-scroll="mortgage-section" data-i18n="about.col3_title">Trusted Mortgage Brokerage</div>
+          <div class="about-col-text" data-i18n="about.col3_text">
+            Independent, client-focused mortgage advice. We compare hundreds
+            of financing partners to secure the best rates and conditions for
+            you.
+          </div>
+        </div>
+      </div>
+      <div class="about-stats">
+        <div class="about-stat-block">
+          <div class="about-stat-icon"><i class="fas fa-building"></i></div>
+          <div class="about-stat-number">150+</div>
+          <div class="about-stat-label" data-i18n="about.stat1_label">Listed Properties</div>
+        </div>
+        <div class="about-stat-block">
+          <div class="about-stat-icon"><i class="fas fa-smile"></i></div>
+          <div class="about-stat-number">95%</div>
+          <div class="about-stat-label" data-i18n="about.stat2_label">Customer Satisfaction</div>
+        </div>
+        <div class="about-stat-block">
+          <div class="about-stat-icon"><i class="fas fa-award"></i></div>
+          <div class="about-stat-number">+15</div>
+          <div class="about-stat-label" data-i18n="about.stat3_label">Years of Experience</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact-section">
+    <div class="contact-container">
+      <div class="contact-form-area">
+        <h2 class="contact-title" data-i18n="contact.title">Contact Us</h2>
+        <form
+          class="contact-form"
+          id="contact-form"
+          action="send-email.php"
+          method="post"
+          autocomplete="off"
+          novalidate
+        >
+          <div>
+            <label for="contact-name" data-i18n="contact.name_label">Name</label>
+            <input
+              type="text"
+              id="contact-name"
+              name="name"
+              data-i18n-placeholder="contact.name_placeholder"
+              placeholder="Enter your full name"
+              required
+            />
+          </div>
+          <div>
+            <label for="contact-email" data-i18n="contact.email_label">Email Address</label>
+            <input
+              type="email"
+              id="contact-email"
+              name="email"
+              data-i18n-placeholder="contact.email_placeholder"
+              placeholder="Enter your email address"
+              required
+            />
+          </div>
+          <div>
+            <label for="contact-phone" data-i18n="contact.phone_label">Phone Number</label>
+            <input
+              type="tel"
+              id="contact-phone"
+              name="phone"
+              data-i18n-placeholder="contact.phone_placeholder"
+              placeholder="Enter your phone number"
+              required
+              pattern="^[+]?[\d\s\-()]{7,}$"
+            />
+          </div>
+          <div>
+            <label for="contact-message" data-i18n="contact.message_label">Message</label>
+            <textarea
+              id="contact-message"
+              name="message"
+              data-i18n-placeholder="contact.message_placeholder"
+              placeholder="How can we help you?"
+              required
+            ></textarea>
+          </div>
+          
+          <!-- Honeypot field for spam protection (hidden from users) -->
+          <div class="honeypot-field">
+            <label for="website">Website</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+          
+          <button type="submit" data-i18n="contact.send_btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-block">
+        <h3 data-i18n="footer.company_name">Immobilien Ghumman</h3>
+        <p data-i18n="footer.company_description">
+          Your trusted partner in finding the perfect property. We're
+          dedicated to providing exceptional service and helping you achieve
+          your real estate goals.
+        </p>
+      </div>
+      <div class="footer-block">
+        <h3 data-i18n="footer.quick_links_title">Quick Links</h3>
+        <ul>
+          <li><a href="#featured-properties" data-i18n="nav.properties">Properties</a></li>
+          <li><a href="#pm-section" data-i18n="nav.property_management">Property Management</a></li>
+          <li><a href="#mortgage-section" data-i18n="nav.mortgage_brokerage">Mortgage Brokerage</a></li>
+          <li><a href="#about-section" data-i18n="nav.about_us">About Us</a></li>
+          <li><a href="#contact-section" data-i18n="nav.contact_us">Contact Us</a></li>
+        </ul>
+        <ul>
+          <li><a href="#featured-properties" data-i18n="hero.house" id="footer-houses-link">Houses</a></li>
+          <li><a href="#featured-properties" data-i18n="hero.apartment" id="footer-apartment-link">Apartments</a></li>
+        </ul>
+      </div>
+      <div class="footer-block">
+        <h3 data-i18n="footer.contact_info_title">Contact Information</h3>
+        <div class="footer-contact-info">
+          <div class="footer-contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Homburger Straße 100, 61118 Bad Vilbel, Germany</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <span>+49 160-98787878</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>info@immobilienghumman.de</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-clock"></i>
+            <span data-i18n="contact.hours">Mon-Fri: 9:00-18:00<br />Sat: 10:00-16:00<br />Sun: Closed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="footer-bottom">
+      <span data-i18n="footer.copyright">&copy; 2025 Immobilien Ghumman. All rights reserved.</span>
+      <span>
+        <a href="privacy-policy.html" target="_blank">Datenschutz / Privacy Policy</a>
+        <a href="impressum.html" target="_blank">Impressum / Legal Notice</a>
+      </span>
+    </div>
+  </footer>
+
+  <!-- Property Details Modal -->
+  <div class="modal-bg" id="property-modal">
+    <div class="modal-content" id="modal-content">
+      <!-- Modal content will be injected by JS -->
+    </div>
+  </div>
+
+  <!-- Lightbox Overlay -->
+  <div class="lightbox-bg" id="lightbox-bg">
+    <div class="lightbox-content" id="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close" title="Close lightbox">
+        <i class="fas fa-times"></i>
+      </button>
+      <button class="lightbox-prev" id="lightbox-prev" title="Previous image">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <img
+        src=""
+        alt="Property Image"
+        class="lightbox-img"
+        id="lightbox-img"
+      />
+      <button class="lightbox-next" id="lightbox-next" title="Next image">
+        <i class="fas fa-chevron-right"></i>
+<section class="legal-section privacy-policy-section" id="privacy-policy">
+  <div class="container legal-container">
+  </div>
+
+  <script>
+    // Language translations
+    const translations = {
+      en: {
+        nav: {
+          properties: "Properties",
+          property_management: "Property Management",
+          mortgage_brokerage: "Real Estate Financing",
+          about_us: "About Us",
+          contact_us: "Contact Us"
+        },
+        hero: {
+          title: "Discover Your Dream Home",
+          location: "Location",
+          explore_btn: "Explore Our Properties"
+        },
+        properties: {
+          title: "Featured Properties",
+          subtitle: "Explore apartments and houses in Bad Vilbel and Schöneck.",
+          view_details: "View Details",
+          sold_out: "SOLD OUT",
+          beds: "Beds",
+          baths: "Baths",
+          parking: "Parking",
+          garage: "Garage",
+          no_results: "No properties found matching your criteria."
+        },
+        pm: {
+          title: "Property Management",
+          intro: "Do you own one or more rental properties and want to stop worrying about the daily hassle? We take care of everything – legally compliant, cost-effective, and with personal dedication.",
+          specialization_title: "Our Specialization",
+          specialization_list_1: "Rental properties with a single owner",
+          specialization_list_2: "No condominiums – 100% rental property management",
+          specialization_list_3: "From single apartment buildings to small complexes – we handle it all",
+          benefits_title: "Your Benefits",
+          benefits_list_1: "Full-service property management",
+          benefits_list_2: "No stress with tenants or maintenance",
+          benefits_list_3: "Reliable income through secure rental processes",
+          benefits_list_4: "Value preservation through ongoing upkeep",
+          benefits_list_5: "Direct contact – no call centers",
+          benefits_list_6: "100% focus on rental management – no WEG complexities",
+          services_title: "Our Services at a Glance",
+          tenant_management_title: "Tenant Management",
+          tenant_management_list_1: "Finding tenants incl. credit checks",
+          tenant_management_list_2: "Lease agreements & property handovers",
+          tenant_management_list_3: "Ongoing tenant communication",
+          tenant_management_list_4: "Security deposit management",
+          tenant_management_list_5: "Legal rent increases",
+          financial_management_title: "Financial Management",
+          financial_management_list_1: "Monthly rent collection & reminders",
+          financial_management_list_2: "Legally compliant utility billing",
+          financial_management_list_3: "Full income overview & account management",
+          financial_management_list_4: "Automated reporting systems",
+          technical_maintenance_title: "Technical Maintenance",
+          technical_maintenance_list_1: "Organizing repairs & servicing",
+          technical_maintenance_list_2: "Coordinating skilled tradespeople",
+          technical_maintenance_list_3: "Full documentation of all actions",
+          technical_maintenance_list_4: "Quality assurance & inspections",
+          overview_title: "Professional Property Management",
+          overview_list_1: "Complete property oversight",
+          overview_list_2: "Professional tenant relations",
+          overview_list_3: "Financial transparency",
+          overview_list_4: "Maintenance coordination",
+          overview_list_5: "Legal compliance assured",
+          who_we_work_with_title: "Who We Work With",
+          who_we_work_with_list_1: "Private landlords",
+          who_we_work_with_list_2: "Real estate investors",
+          who_we_work_with_list_3: "Domestic & international property owners",
+          slide1_desc: "Professional management for individual property owners",
+          slide2_desc: "Comprehensive portfolio management solutions",
+          slide3_desc: "Remote property management with full transparency",
+          trust_title: "Trust Built on Structure and Communication",
+          trust_text: "We prioritize open, reliable communication with owners and tenants. This keeps your property stable, valuable, and profitable long-term.",
+          cta_text: "Want to hand off your rental property to professionals?",
+          cta_btn: "→ Get in touch for a free consultation"
+        },
+        mortgage: {
+            title: "Real Estate Financing",
+            intro: "Buying a home or investing in property? We help you find the ideal financing solution – tailored to your life, goals, and budget.",
+            benefits_list_1: "Honest advice with no bank bias",
+            benefits_list_2: "Compare 400+ lenders for the best terms",
+            benefits_list_3: "Tailored loan concepts incl. subsidies & flexibility",
+            benefits_list_4: "Free consultation",
+            benefits_list_5: "Digital processes with personal support",
+            services_title: "Our Services in Detail",
+            financing_title: "Real Estate Financing",
+            financing_list_1: "Purchase financing solutions",
+            financing_list_2: "Investment property loans",
+            financing_list_3: "Refinancing options",
+            financing_list_4: "Government subsidies included",
+            advice_title: "Honest Advice",
+            advice_list_1: "Independent consultation",
+            advice_list_2: "No bank bias or hidden fees",
+            advice_list_3: "Transparent comparison process",
+            advice_list_4: "Client-focused recommendations",
+            construction_title: "Construction Support",
+            construction_list_1: "New build financing",
+            construction_list_2: "Construction loan management",
+            construction_list_3: "Progress payment coordination",
+            construction_list_4: "Project oversight support",
+            solutions_title: "Comprehensive Solutions",
+            solutions_list_1: "400+ lender comparison",
+            solutions_list_2: "Best interest rate guarantee",
+            solutions_list_3: "Self-employed friendly options",
+            solutions_list_4: "Digital process with personal touch",
+            details_title: "Our Services in Detail",
+            details_list_1: "Personal Consultation: Understand your financial situation, clarify all questions and goals, develop a financing strategy that fits.",
+            details_list_2: "Independent Loan Comparison: Access to 400+ banks and lenders, best interest rates and long-term planning.",
+            details_list_3: "Customized Loan Solutions: Purchase, build, renovate, follow-up financing or refinancing, self-employed & freelancers welcome.",
+            who_benefits_title: "Who Benefits from Our Service",
+            who_benefits_list_1: "Homebuyers & builders",
+            who_benefits_list_2: "Property investors",
+            who_benefits_list_3: "Self-employed professionals",
+            who_benefits_list_4: "Owners refinancing existing loans",
+            slide1_desc: "First-time buyers and construction financing",
+            slide2_desc: "Investment property financing solutions",
+            slide3_desc: "Specialized financing for entrepreneurs",
+            slide4_desc: "Optimized refinancing and debt restructuring",
+            experience_title: "Experience, Transparency, Trust",
+            experience_text: "Real estate financing is more than numbers – it's about life planning, security, and your future. We're here to guide you with honesty and expertise.",
+            cta_btn: "→ Request a call"
+        },
+        about: {
+            title: "About Us",
+            col1_title: "Immobilien Ghumman",
+            col1_text: "Experience the joy of living in thoughtfully designed homes and apartments. Our properties offer comfort, style, and a vibrant community atmosphere.",
+            col2_title: "Property Management",
+            col2_text: "Professional management for rental apartments – personal, transparent, and reliable. We handle all aspects of administration, maintenance, and tenant relations.",
+            col3_title: "Real Estate Financing ",
+            col3_text: "Independent, client-focused mortgage advice. We compare hundreds of financing partners to secure the best rates and conditions for you.",
+            stat1_label: "Listed Properties",
+            stat2_label: "Customer Satisfaction",
+            stat3_label: "Years of Experience"
+        },
+        contact: {
+            title: "Contact Us",
+            name_label: "Name",
+            name_placeholder: "Enter your full name",
+            email_label: "Email Address",
+            email_placeholder: "Enter your email address",
+            phone_label: "Phone Number",
+            phone_placeholder: "Enter your phone number",
+            message_label: "Message",
+            message_placeholder: "How can we help you?",
+            send_btn: "Send Message",
+            hours: "Mon-Fri: 9:00-18:00<br />Sat: 10:00-16:00<br />Sun: Closed"
+        },
+        footer: {
+            company_name: "Immobilien Ghumman",
+            company_description: "Your trusted partner in finding the perfect property. We're dedicated to providing exceptional service and helping you achieve your real estate goals.",
+            quick_links_title: "Quick Links",
+            contact_info_title: "Contact Information",
+            copyright: "© 2025 Immobilien Ghumman. All rights reserved.",
+            privacy: "Privacy Policy",
+            terms: "Terms of Service"
+        }
+      },
+      de: {
+        nav: {
+          properties: "Immobilien",
+          property_management: "Hausverwaltung",
+          mortgage_brokerage: "Finanzierungsvermittlung",
+          about_us: "Über uns",
+          contact_us: "Kontakt"
+        },
+        hero: {
+          title: "Entdecken Sie Ihr Traumhaus",
+          location: "Standort",
+          explore_btn: "Unsere Immobilien erkunden"
+        },
+        properties: {
+          title: "Ausgewählte Immobilien",
+          subtitle: "Entdecken Sie Wohnungen und Häuser in Bad Vilbel und Schöneck.",
+          view_details: "Details anzeigen",
+          sold_out: "VERKAUFT",
+          beds: "Zimmer",
+          baths: "Bäder",
+          parking: "Parkplatz",
+          garage: "Garage",
+          no_results: "Keine Immobilien gefunden, die Ihren Kriterien entsprechen."
+        },
+        pm: {
+          title: "Hausverwaltung",
+          intro: "Besitzen Sie eine oder mehrere Mietimmobilien und möchten sich nicht mehr um den täglichen Aufwand kümmern? Wir übernehmen alles – rechtssicher, kostengünstig und mit persönlichem Engagement.",
+          specialization_title: "Unsere Spezialisierung",
+          specialization_list_1: "Mietobjekte mit einem einzigen Eigentümer",
+          specialization_list_2: "Keine Eigentumswohnungen – 100% Mietverwaltung",
+          specialization_list_3: "Vom einzelnen Mehrfamilienhaus bis zu kleinen Anlagen – wir kümmern uns darum",
+          benefits_title: "Ihre Vorteile",
+          benefits_list_1: "Full-Service-Hausverwaltung",
+          benefits_list_2: "Kein Stress mit Mietern oder Instandhaltung",
+          benefits_list_3: "Sichere Einnahmen durch zuverlässige Mietprozesse",
+          benefits_list_4: "Werterhalt durch laufende Instandhaltung",
+          benefits_list_5: "Direkter Kontakt – keine Callcenter",
+          benefits_list_6: "100% Fokus auf Mietverwaltung – keine WEG-Komplexität",
+          services_title: "Unsere Leistungen im Überblick",
+          tenant_management_title: "Mieterverwaltung",
+          tenant_management_list_1: "Mietersuche inkl. Bonitätsprüfung",
+          tenant_management_list_2: "Mietverträge & Wohnungsübergaben",
+          tenant_management_list_3: "Laufende Mieterkommunikation",
+          tenant_management_list_4: "Kautionsverwaltung",
+          tenant_management_list_5: "Gesetzeskonforme Mieterhöhungen",
+          financial_management_title: "Finanzverwaltung",
+          financial_management_list_1: "Monatlicher Miete-Einzug & Mahnwesen",
+          financial_management_list_2: "Rechtssichere Nebenkostenabrechnung",
+          financial_management_list_3: "Vollständige Einnahmenübersicht & Kontoführung",
+          technical_maintenance_title: "Technische Betreuung",
+          technical_maintenance_list_1: "Organisation von Reparaturen & Wartung",
+          technical_maintenance_list_2: "Koordination von Handwerkern",
+          technical_maintenance_list_3: "Vollständige Dokumentation aller Maßnahmen",
+          who_we_work_with_title: "Für wen wir arbeiten",
+          who_we_work_with_list_1: "Private Vermieter",
+          who_we_work_with_list_2: "Immobilieninvestoren",
+          who_we_work_with_list_3: "In- und ausländische Immobilieneigentümer",
+          slide1_desc: "Professionelle Verwaltung für einzelne Immobilieneigentümer",
+          slide2_desc: "Umfassende Portfolio-Management-Lösungen",
+          slide3_desc: "Remote-Immobilienverwaltung mit voller Transparenz",
+          trust_title: "Vertrauen durch Struktur und Kommunikation",
+          trust_text: "Wir legen Wert auf eine offene, verlässliche Kommunikation mit Eigentümern und Mietern. So bleibt Ihre Immobilie langfristig stabil, werthaltig und rentabel.",
+          cta_text: "Möchten Sie Ihre Mietimmobilie in professionelle Hände geben?",
+          cta_btn: "→ Kontakt für eine kostenlose Beratung",
+          // Flip cards
+          overview_title: "Vollservice Überblick",
+          overview_list_1: "Komplette Mieterverwaltung",
+          overview_list_2: "Finanzielle Betreuung & Buchhaltung",
+          overview_list_3: "Technische Wartung & Reparaturen",
+          overview_list_4: "Rechtliche Absicherung"
+        },
+        mortgage: {
+            title: "Finanzierungsvermittlung",
+            intro: "Sie kaufen ein Haus oder investieren in eine Immobilie? Wir helfen Ihnen, die ideale Finanzierungslösung zu finden – zugeschnitten auf Ihr Leben, Ihre Ziele und Ihr Budget.",
+            benefits_list_1: "Ehrliche Beratung ohne Bankenbindung",
+            benefits_list_2: "Vergleich von 400+ Anbietern für beste Konditionen",
+            benefits_list_3: "Maßgeschneiderte Darlehenskonzepte inkl. Förderungen & Flexibilität",
+            benefits_list_4: "Kostenlose Beratung",
+            benefits_list_5: "Digitale Prozesse mit persönlicher Betreuung",
+          // Flip cards
+          financing_title: "Immobilienfinanzierung",
+          financing_list_1: "Optimale Zinskonditionen finden",
+          financing_list_2: "400+ Anbieter im Vergleich",
+          financing_list_3: "Förderungen & KfW-Darlehen",
+          financing_list_4: "Flexible Tilgungsoptionen",
+          advice_title: "Ehrliche Beratung",
+          advice_list_1: "Unabhängig von Banken",
+          advice_list_2: "Transparente Kostenaufstellung",
+          advice_list_3: "Persönliche Betreuung",
+          advice_list_4: "Langfristige Partnerschaft",
+          construction_title: "Baubegleitung",
+          construction_list_1: "Baufinanzierung während der Bauphase",
+          construction_list_2: "Bereitstellungszinsfreie Zeit",
+          construction_list_3: "Koordination mit Bauträgern",
+          construction_list_4: "Abnahme & Übergabe begleiten",
+          solutions_title: "Umfassende Lösungen",
+          solutions_list_1: "Anschlussfinanzierung",
+          solutions_list_2: "Modernisierungsdarlehen",
+          solutions_list_3: "Forward-Darlehen",
+          solutions_list_4: "Kapitalanleger-Finanzierung",
+            details_title: "Unsere Leistungen im Detail",
+            details_list_1: "Persönliche Beratung: Finanzielle Situation verstehen, alle Fragen und Ziele klären, passende Finanzierungsstrategie entwickeln.",
+            details_list_2: "Unabhängiger Darlehensvergleich: Zugang zu 400+ Banken und Kreditgebern, beste Zinsen und langfristige Planung.",
+            details_list_3: "Individuelle Darlehenslösungen: Kauf, Bau, Renovierung, Anschlussfinanzierung oder Umschuldung, auch für Selbstständige & Freiberufler.",
+            who_benefits_title: "Wer von unserem Service profitiert",
+            who_benefits_list_1: "Hauskäufer & Bauherren",
+            who_benefits_list_2: "Kapitalanleger",
+            who_benefits_list_3: "Selbstständige und Freiberufler",
+            who_benefits_list_4: "Eigentümer, die bestehende Kredite umschulden",
+            slide1_desc: "Erstkäufer und Baufinanzierung",
+            slide2_desc: "Kapitalanlage-Finanzierungslösungen",
+            slide3_desc: "Spezielle Finanzierung für Unternehmer",
+            slide4_desc: "Optimierte Umschuldung und Umstrukturierung",
+            experience_title: "Erfahrung, Transparenz, Vertrauen",
+            experience_text: "Baufinanzierung ist mehr als Zahlen – es geht um Lebensplanung, Sicherheit und Ihre Zukunft. Wir begleiten Sie ehrlich und kompetent.",
+            cta_btn: "→ Rückruf anfordern"
+        },
+        about: {
+            title: "Über Uns",
+            col1_title: "Immobilien Ghumman",
+            col1_text: "Erleben Sie die Freude am Wohnen in durchdacht gestalteten Häusern und Wohnungen. Unsere Immobilien bieten Komfort, Stil und eine lebendige Gemeinschaftsatmosphäre.",
+            col2_title: "Hausverwaltung",
+            col2_text: "Professionelle Verwaltung für Mietwohnungen – persönlich, transparent und zuverlässig. Wir kümmern uns um alle Aspekte der Verwaltung, Instandhaltung und Mieterbeziehungen.",
+            col3_title: "Finanzierungsvermittlung",
+            col3_text: "Unabhängige, kundenorientierte Finanzierungsberatung. Wir vergleichen hunderte von Finanzierungspartnern, um die besten Zinsen und Konditionen für Sie zu sichern.",
+            stat1_label: "Gelistete Immobilien",
+            stat2_label: "Kundenzufriedenheit",
+            stat3_label: "Jahre Erfahrung"
+        },
+        contact: {
+            title: "Kontaktieren Sie uns",
+            name_label: "Name",
+            name_placeholder: "Geben Sie Ihren vollständigen Namen ein",
+            email_label: "E-Mail-Adresse",
+            email_placeholder: "Geben Sie Ihre E-Mail-Adresse ein",
+            phone_label: "Telefonnummer",
+            phone_placeholder: "Geben Sie Ihre Telefonnummer ein",
+            message_label: "Nachricht",
+            message_placeholder: "Wie können wir Ihnen helfen?",
+            send_btn: "Nachricht senden",
+            hours: "Mo-Fr: 9:00-18:00<br />Sa: 10:00-16:00<br />So: Geschlossen"
+        },
+        footer: {
+            company_name: "Immobilien Ghumman",
+            company_description: "Ihr zuverlässiger Partner bei der Suche nach der perfekten Immobilie. Wir sind bestrebt, außergewöhnlichen Service zu bieten und Ihnen zu helfen, Ihre Immobilienziele zu erreichen.",
+            quick_links_title: "Schnell-Links",
+            contact_info_title: "Kontaktinformationen",
+            copyright: "© 2025 Immobilien Ghumman. Alle Rechte vorbehalten.",
+            privacy: "Datenschutz",
+            terms: "Nutzungsbedingungen"
+        }
+      }
+    };
+
+    // Current language state
+    let currentLanguage = localStorage.getItem('language') || 'en';
+
+    // Language toggle functionality
+    function toggleLanguage() {
+      currentLanguage = currentLanguage === 'en' ? 'de' : 'en';
+      localStorage.setItem('language', currentLanguage);
+      updateLanguage();
+    }
+
+    function updateLanguage() {
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        const keys = key.split('.');
+        let translation = translations[currentLanguage];
+        
+        try {
+            for (let k of keys) {
+              translation = translation[k];
+            }
+            if (translation) {
+              element.innerHTML = translation;
+            }
+        } catch (e) {
+            console.warn(`Translation not found for key: ${key}`);
+        }
+      });
+
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+        const key = element.getAttribute('data-i18n-placeholder');
+        const keys = key.split('.');
+        let translation = translations[currentLanguage];
+        try {
+            for (let k of keys) {
+                translation = translation[k];
+            }
+            if (translation) {
+                element.placeholder = translation;
+            }
+        } catch(e) {
+            console.warn(`Placeholder translation not found for key: ${key}`);
+        }
+      });
+
+      // Update language display
+      document.getElementById('lang-display').textContent = currentLanguage.toUpperCase();
+      document.getElementById('lang-display-mobile').textContent = currentLanguage.toUpperCase();
+      
+      // Update HTML lang attribute
+      document.documentElement.lang = currentLanguage;
+      
+      // Re-render properties with new language
+      renderProperties();
+    }
+
+    // Dark mode functionality
+    function toggleDarkMode() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      // Update dark mode button icons
+      const icon = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+      document.querySelectorAll('.dark-mode-toggle i').forEach(i => {
+        i.className = icon;
+      });
+    }
+
+    // Initialize theme and language
+    function initializeTheme() {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      
+      const icon = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+      document.querySelectorAll('.dark-mode-toggle i').forEach(i => {
+        i.className = icon;
+      });
+    }
+
+    // Property data with language support
+    const properties = [
+      {
+        id: 1,
+        type: "Apartment",
+        sold: false,
+        forrent: true,
+        title: {
+          en: "1 Room Apartment",
+          de: "1 Zimmer Wohnung"
+        },
+        location: "Bad Vilbel",
+        price: "€550€ / Kaltmiete",
+        beds: 1,
+        bath: 1,
+        size: 20,
+        parking: 0,
+        images: [
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752787953/lohstr._2_qhs0np.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752787969/lohstr_1_eerakf.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752787969/lohstr_2_gkydyi.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752787953/lohstr._nvebu7.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752787953/lohstr_5_poqjja.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752787952/lohstr_3_yxvszt.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752787952/lohstr_4_t3ux80.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752787953/lohstr_6_moejsu.jpg"
+        ],
+        description: {
+              en: `Available immediately: Well-maintained ground floor apartment in a quiet multi-family house in central Bad Vilbel . Ideal for singles, commuters, or students.
+
+            <h4 style="margin-top: 1em; margin-bottom: 0.5em; text-align:left;"><i class="fas fa-info-circle" style="margin-right: 0.5em; color: var(--primary);"></i>Apartment Details</h4>
+            <ul style="list-style: none; padding-left: 0; text-align:left;">
+            <li style="margin-bottom: 0.5em;"><i class="fas fa-ruler-combined" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Living space:</strong> approx. 25.76 m²</li>
+            <li style="margin-bottom: 0.5em;"><i class="fas fa-door-open" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Rooms:</strong> 1</li>
+            <li style="margin-bottom: 0.5em;"><i class="fas fa-layer-group" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Floor:</strong> Ground floor</li>
+            <li style="margin-bottom: 0.5em;"><i class="fas fa-euro-sign" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Cold rent:</strong> €550</li>
+            <li style="margin-bottom: 0.5em;"><i class="fas fa-file-invoice-dollar" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Utilities:</strong> €125</li>
+            <li style="margin-bottom: 0.5em;"><i class="fas fa-fire-alt" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Heating costs:</strong> €75</li>
+            <li style="margin-bottom: 0.5em;"><i class="fas fa-wallet" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Total rent:</strong> €750</li>
+            <li style="margin-bottom: 0.5em;"><i class="fas fa-calendar-check" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Available from:</strong> Immediately</li>
+            <li style="margin-bottom: 0.5em;"><i class="fas fa-bath" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Bathroom:</strong> With shower</li>
+            <li style="margin-bottom: 0.5em;"><i class="fas fa-grip-horizontal" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Flooring:</strong> Tiled</li>
+            <li style="margin-bottom: 0.5em;"><i class="fas fa-utensils" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Kitchen:</strong> Fully equipped (fitted kitchen)</li>
+            <li style="margin-bottom: 0.5em;"><i class="fas fa-fire" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Heating:</strong> Gas</li>
+            <li style="margin-bottom: 0.5em;"><i class="fas fa-couch" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Furnished:</strong> Yes</li>
+            </ul>
+
+            <h4 style="margin-top: 1em; margin-bottom: 0.5em; text-align:left;"><i class="fas fa-map-marker-alt" style="margin-right: 0.5em; color: var(--primary);"></i>Location</h4>
+            <p style="text-align:left;">The apartment is located on a quiet side street with excellent public transport access. Shops, restaurants, doctors, and pharmacies are all within walking distance. Enjoy peace and quiet while living centrally located.</p>
+
+            <h4 style="margin-top: 1em; margin-bottom: 0.5em; text-align:left;"><i class="fas fa-exclamation-circle" style="margin-right: 0.5em; color: var(--primary);"></i>Hinweis</h4>
+            <ul style="list-style: none; padding-left: 0; text-align:left;">
+        <li style="margin-bottom: 0.5em;"><i class="fas fa-paw" style="margin-right: 0.5em; color: var(--accent);"></i>No pets</li>
+        <li style="margin-bottom: 0.5em;"><i class="fas fa-smoking-ban" style="margin-right: 0.5em; color: var(--accent);"></i>No smoking</li>
+        <li style="margin-bottom: 0.5em;"><i class="fas fa-check-circle" style="margin-right: 0.5em; color: var(--accent);"></i>Furnished rental</li>
+            </ul>`,
+            de: `Ab sofort verfügbar: Gepflegte 1-Zimmer-Wohnung im Erdgeschoss eines ruhigen Mehrfamilienhauses in der Kernstadt Bad Vilbel. Ideal für Singles, Pendler oder Studierende.
+
+            <h4 style="margin-top: 1em; margin-bottom: 0.5em; text-align:left;"><i class="fas fa-info-circle" style="margin-right: 0.5em; color: var(--primary);"></i>Wohnungsdetails</h4>
+            <ul style="list-style: none; padding-left: 0; text-align:left;">
+        <li style="margin-bottom: 0.5em;"><i class="fas fa-ruler-combined" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Wohnfläche:</strong> ca. 25.76 m²</li>
+        <li style="margin-bottom: 0.5em;"><i class="fas fa-door-open" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Zimmer:</strong> 1</li>
+        <li style="margin-bottom: 0.5em;"><i class="fas fa-layer-group" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Etage:</strong> Erdgeschoss</li>
+        <li style="margin-bottom: 0.5em;"><i class="fas fa-euro-sign" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Kaltmiete:</strong> 550 €</li>
+        <li style="margin-bottom: 0.5em;"><i class="fas fa-file-invoice-dollar" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Nebenkosten:</strong> 125 €</li>
+        <li style="margin-bottom: 0.5em;"><i class="fas fa-fire-alt" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Heizkosten:</strong> 75 €</li>
+        <li style="margin-bottom: 0.5em;"><i class="fas fa-wallet" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Gesamtmiete:</strong> 750 €</li>
+        <li style="margin-bottom: 0.5em;"><i class="fas fa-calendar-check" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Verfügbar ab:</strong> sofort</li>
+        <li style="margin-bottom: 0.5em;"><i class="fas fa-bath" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Bad:</strong> mit Dusche</li>
+        <li style="margin-bottom: 0.5em;"><i class="fas fa-grip-horizontal" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Bodenbelag:</strong> Fliesen</li>
+        <li style="margin-bottom: 0.5em;"><i class="fas fa-utensils" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Küche:</strong> Einbauküche vorhanden</li>
+        <li style="margin-bottom: 0.5em;"><i class="fas fa-fire" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Heizung:</strong> Gasheizung</li>
+        <li style="margin-bottom: 0.5em;"><i class="fas fa-couch" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Möbliert:</strong> ja</li>
+            </ul>
+
+            <h4 style="margin-top: 1em; margin-bottom: 0.5em; text-align:left;"><i class="fas fa-map-marker-alt" style="margin-right: 0.5em; color: var(--primary);"></i>Lage</h4>
+            <p style="text-align:left;">Die Wohnung befindet sich in einer ruhigen Seitenstraße mit sehr guter ÖPNV-Anbindung. Einkaufsmöglichkeiten, Restaurants, Ärzte und Apotheken sind fußläufig erreichbar. Ruhig wohnen, aber dennoch zentral – die perfekte Kombination.</p>
+
+            <h4 style="margin-top: 1em; margin-bottom: 0.5em; text-align:left;"><i class="fas fa-exclamation-circle" style="margin-right: 0.5em; color: var(--primary);"></i>Hinweis</h4>
+            <ul style="list-style: none; padding-left: 0; text-align:left;">
+        <li style="margin-bottom: 0.5em;"><i class="fas fa-paw" style="margin-right: 0.5em; color: var(--accent);"></i>Keine Haustiere</li>
+        <li style="margin-bottom: 0.5em;"><i class="fas fa-smoking-ban" style="margin-right: 0.5em; color: var(--accent);"></i>Nichtraucherwohnung</li>
+        <li style="margin-bottom: 0.5em;"><i class="fas fa-check-circle" style="margin-right: 0.5em; color: var(--accent);"></i>Möblierte Vermietung</li>
+            </ul>`
+    },
+    
+        contact: {
+          phone: "+49 160-98787878",
+          email: "info@immobilienghumman.de"
+        }
+      },
+      {
+        id: 2,
+        type: "Apartment",
+        sold: false,
+        forrent: true,
+        title: {
+          en: "1 Room Apartment",
+          de: "1 Zimmer Wohnung"
+        },
+        location: "Bad Vilbel",
+        price: "550€ / Kaltmiete",
+        Rooms: 1,
+        bath: 1,
+        size: 25.76,
+        parking: "50€",
+        images: [
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788096/100_B_5_qsp5cd.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788099/100_B_14_otn5ik.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788098/100_B_11_udju7o.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788098/100_B_12_s9wocs.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788098/100_B_10_mybean.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788097/100_B_8_fi30np.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788097/100_B_9_zzwp97.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788096/100_B_7_mptyqt.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788096/100_B_6_lromh1.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788099/100_B_13_d68ykw.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788095/100_B_4_ibamfm.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788095/100_B_3_kyr2bb.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788095/100_B_2_e6gvao.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788094/100_B_1_mi2rb9.jpg"
+        ],
+        description: {
+              en: `Available immediately: Well-maintained ground floor apartment in a quiet multi-family house in Bad Vilbel-Massenheim . Ideal for singles, commuters, or students.
+
+            <h4 style="margin-top: 1em; margin-bottom: 0.5em; text-align:left;"><i class="fas fa-info-circle" style="margin-right: 0.5em; color: var(--primary);"></i>Apartment Details</h4>
+            <ul style="list-style: none; padding-left: 0; text-align:left;">
+            <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-ruler-combined" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Living space:</strong> approx. 25.76 m²</li>
+            <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-door-open" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Rooms:</strong> 1</li>
+            <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-layer-group" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Floor:</strong> Ground floor</li>
+            <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-euro-sign" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Cold rent:</strong> €550</li>
+            <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-file-invoice-dollar" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Utilities:</strong> €125</li>
+            <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-fire-alt" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Heating costs:</strong> €75</li>
+            <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-wallet" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Total rent:</strong> €750</li>
+            <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-calendar-check" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Available from:</strong> Immediately</li>
+            <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-bath" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Bathroom:</strong> With shower</li>
+            <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-grip-horizontal" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Flooring:</strong> Tiled</li>
+            <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-utensils" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Kitchen:</strong> Fully equipped (fitted kitchen)</li>
+            <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-fire" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Heating:</strong> Gas</li>
+            <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-couch" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Furnished:</strong> Yes</li>
+            </ul>
+
+            <h4 style="margin-top: 1em; margin-bottom: 0.5em; text-align:left;"><i class="fas fa-map-marker-alt" style="margin-right: 0.5em; color: var(--primary);"></i>Location</h4>
+            <p style="text-align:left;">The apartment is located on a quiet side street with excellent public transport access. Shops, restaurants, doctors, and pharmacies are all within walking distance. Enjoy peace and quiet while living centrally located.</p>
+
+            <h4 style="margin-top: 1em; margin-bottom: 0.5em; text-align:left;"><i class="fas fa-exclamation-circle" style="margin-right: 0.5em; color: var(--primary);"></i>Hinweis</h4>
+            <ul style="list-style: none; padding-left: 0; text-align:left;">
+        <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-paw" style="margin-right: 0.5em; color: var(--accent);"></i>No pets</li>
+        <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-smoking-ban" style="margin-right: 0.5em; color: var(--accent);"></i>No smoking</li>
+        <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-check-circle" style="margin-right: 0.5em; color: var(--accent);"></i>Furnished rental</li>
+            </ul>`,
+            de: `Ab sofort verfügbar: Gepflegte 1-Zimmer-Wohnung im Erdgeschoss eines ruhigen Mehrfamilienhauses in Bad Vilbel-Massenheim. Ideal für Singles, Pendler oder Studierende.
+
+            <h4 style="margin-top: 1em; margin-bottom: 0.5em; text-align:left;"><i class="fas fa-info-circle" style="margin-right: 0.5em; color: var(--primary);"></i>Wohnungsdetails</h4>
+            <ul style="list-style: none; padding-left: 0; text-align:left;">
+        <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-ruler-combined" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Wohnfläche:</strong> ca. 25.76 m²</li>
+        <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-door-open" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Zimmer:</strong> 1</li>
+        <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-layer-group" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Etage:</strong> Erdgeschoss</li>
+        <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-euro-sign" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Kaltmiete:</strong> 550 €</li>
+        <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-file-invoice-dollar" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Nebenkosten:</strong> 125 €</li>
+        <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-fire-alt" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Heizkosten:</strong> 75 €</li>
+        <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-wallet" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Gesamtmiete:</strong> 750 €</li>
+        <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-calendar-check" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Verfügbar ab:</strong> sofort</li>
+        <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-bath" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Bad:</strong> mit Dusche</li>
+        <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-grip-horizontal" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Bodenbelag:</strong> Fliesen</li>
+        <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-utensils" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Küche:</strong> Einbauküche vorhanden</li>
+        <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-fire" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Heizung:</strong> Gasheizung</li>
+        <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-couch" style="margin-right: 0.5em; color: var(--accent);"></i><strong>Möbliert:</strong> ja</li>
+            </ul>
+
+            <h4 style="margin-top: 1em; margin-bottom: 0.5em; text-align:left;"><i class="fas fa-map-marker-alt" style="margin-right: 0.5em; color: var(--primary);"></i>Lage</h4>
+            <p style="text-align:left;">Die Wohnung befindet sich in einer ruhigen Seitenstraße mit sehr guter ÖPNV-Anbindung. Einkaufsmöglichkeiten, Restaurants, Ärzte und Apotheken sind fußläufig erreichbar. Ruhig wohnen, aber dennoch zentral – die perfekte Kombination.</p>
+
+            <h4 style="margin-top: 1em; margin-bottom: 0.5em; text-align:left;"><i class="fas fa-exclamation-circle" style="margin-right: 0.5em; color: var(--primary);"></i>Hinweis</h4>
+            <ul style="list-style: none; padding-left: 0; text-align:left;">
+        <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-paw" style="margin-right: 0.5em; color: var(--accent);"></i>Keine Haustiere</li>
+        <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-smoking-ban" style="margin-right: 0.5em; color: var(--accent);"></i>Nichtraucherwohnung</li>
+        <li style="margin-bottom: 0.5em; text-align:left;"><i class="fas fa-check-circle" style="margin-right: 0.5em; color: var(--accent);"></i>Möblierte Vermietung</li>
+            </ul>`
+        },
+        contact: {
+          phone: "+49 160-98787878",
+          email: "info@immobilienghumman.de"
+        }
+      },
+      {
+        id: 3,
+        type: "House",
+        sold: false,
+        forrent: true,
+        title: {
+          en: "Family House in Schöneck",
+          de: "Mehrfamilienhaus in Schöneck"
+        },
+        location: "Schöneck",
+        price: "750.000€ / Kaufpreis",
+        beds: 12,
+        baths: 4,
+        size: 594.00,
+        parking: 4,
+        images: [
+         "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752787837/11_nowosz.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752787856/2_eknspd.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752787856/1_aw7hgu.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788058/Sch%C3%B6neck_7_ac4elg.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788058/Sch%C3%B6neck_6_rtyzib.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788084/Sch%C3%B6neck_4_vra4h7.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788083/Sch%C3%B6neck_3_ehbss2.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788083/Sch%C3%B6neck_2_w9h1vx.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788083/Sch%C3%B6neck_1_plwzh5.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788071/Sch%C3%B6neck_54_wen3wc.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788070/Sch%C3%B6neck_47_yze7rt.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788069/Sch%C3%B6neck_46_iltfp2.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788068/Sch%C3%B6neck_43_juaxon.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788068/Sch%C3%B6neck_41_qtexug.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788068/Sch%C3%B6neck_40_wcx3fl.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788067/Sch%C3%B6neck_39_tozfdr.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788067/Sch%C3%B6neck_38_ddzvmr.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788067/Sch%C3%B6neck_37_yogpkr.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788067/Sch%C3%B6neck_36_srqdmc.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788066/Sch%C3%B6neck_34_cwfyej.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788066/Sch%C3%B6neck_33_vqikrm.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788065/Sch%C3%B6neck_32_dpk6yy.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788065/Sch%C3%B6neck_30_cdxfx1.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788065/Sch%C3%B6neck_29_oplw2x.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788064/Sch%C3%B6neck_27_ydf7m1.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788063/Sch%C3%B6neck_25_mgdbfg.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788063/Sch%C3%B6neck_24_v37xwc.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788063/Sch%C3%B6neck_23_g5vjhr.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788062/Sch%C3%B6neck_21_qa23vv.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788062/Sch%C3%B6neck_20_ojwoxl.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788062/Sch%C3%B6neck_19_uwcjjw.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788061/Sch%C3%B6neck_18_glro9h.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788061/Sch%C3%B6neck_17_axn4ng.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788061/Sch%C3%B6neck_15_eatasv.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788060/Sch%C3%B6neck_14_s8rq34.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788060/Sch%C3%B6neck_13_yxbu6a.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788060/Sch%C3%B6neck_12_zpwbnb.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788059/Sch%C3%B6neck_11_pbtrkv.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788059/Sch%C3%B6neck_10_uuwxzq.jpg",
+          "https://res.cloudinary.com/dlpdbr0ey/image/upload/v1752788059/Sch%C3%B6neck_9_tjijrb.jpg",
+        ],
+        
+
+        description: {
+            en: `
+            <h4 style="margin-top: 1em; margin-bottom: 0.5em; text-align:left;"><i class="fas fa-info-circle" style="margin-right: 0.5em; color: var(--primary);"></i>Key Facts</h4>
+            <ul style="list-style: none; padding-left: 0; text-align:left;">
+              <li style="margin-bottom: 0.5em;"><i class="fas fa-home" style="margin-right: 0.5em; color: var(--accent);"></i>4 units, each 105 m² (3 rooms, kitchen, bathroom, WC, hallway)</li>
+              <li style="margin-bottom: 0.5em;"><i class="fas fa-ruler-combined" style="margin-right: 0.5em; color: var(--accent);"></i>Total area: approx. 594 m²</li>
+              <li style="margin-bottom: 0.5em;"><i class="fas fa-layer-group" style="margin-right: 0.5em; color: var(--accent);"></i>Floors: 2</li>
+              <li style="margin-bottom: 0.5em;"><i class="fas fa-calendar-alt" style="margin-right: 0.5em; color: var(--accent);"></i>Year built: 1980</li>
+              <li style="margin-bottom: 0.5em;"><i class="fas fa-check-circle" style="margin-right: 0.5em; color: var(--accent);"></i>Condition: Well maintained</li>
+              <li style="margin-bottom: 0.5em;"><i class="fas fa-hand-holding-usd" style="margin-right: 0.5em; color: var(--accent);"></i>Commission: 5.95% incl. VAT (paid by buyer)</li>
+            </ul>
+
+            <h4 style="margin-top: 1em; margin-bottom: 0.5em; text-align:left;"><i class="fas fa-star" style="margin-right: 0.5em; color: var(--primary);"></i>Features</h4>
+            <ul style="list-style: none; padding-left: 0; text-align:left;">
+              <li style="margin-bottom: 0.5em;"><i class="fas fa-fire" style="margin-right: 0.5em; color: var(--accent);"></i>Gas central heating (Buderus, 2012)</li>
+              <li style="margin-bottom: 0.5em;"><i class="fas fa-bolt" style="margin-right: 0.5em; color: var(--accent);"></i>Energy certificate (consumption-based): 107 kWh/(m²·a)</li>
+              <li style="margin-bottom: 0.5em;"><i class="fas fa-shield-alt" style="margin-right: 0.5em; color: var(--accent);"></i>Thermal insulation facade (2004)</li>
+              <li style="margin-bottom: 0.5em;"><i class="fas fa-building" style="margin-right: 0.5em; color: var(--accent);"></i>Flat roof renewed (2006)</li>
+              <li style="margin-bottom: 0.5em;"><i class="fas fa-bath" style="margin-right: 0.5em; color: var(--accent);"></i>Bathrooms partially renovated</li>
+            </ul>
+
+            <h4 style="margin-top: 1em; margin-bottom: 0.5em; text-align:left;"><i class="fas fa-map-marker-alt" style="margin-right: 0.5em; color: var(--primary);"></i>Location</h4>
+            <p style="text-align:left;">Quiet area in Schöneck (Wetterau district), approx. 20 km to Frankfurt city center.</p>
+            <ul style="list-style: none; padding-left: 0; text-align:left;">
+              <li style="margin-bottom: 0.5em;"><i class="fas fa-train" style="margin-right: 0.5em; color: var(--accent);"></i><b>Train:</b> 30 min to Frankfurt (Park & Ride available).</li>
+              <li style="margin-bottom: 0.5em;"><i class="fas fa-bus" style="margin-right: 0.5em; color: var(--accent);"></i><b>Bus:</b> Connections to Bad Vilbel and Hanau.</li>
+              <li style="margin-bottom: 0.5em;"><i class="fas fa-plane-departure" style="margin-right: 0.5em; color: var(--accent);"></i><b>Frankfurt Airport:</b> approx. 40 min.</li>
+              <li style="margin-bottom: 0.5em;"><i class="fas fa-shopping-cart" style="margin-right: 0.5em; color: var(--accent);"></i>Supermarkets and infrastructure near train stations.</li>
+            </ul>
+            `,
+            de: `
+            <h4 style="margin-top: 1em; margin-bottom: 0.5em; text-align:left;"><i class="fas fa-info-circle" style="margin-right: 0.5em; color: var(--primary);"></i>Eckdaten</h4>
+            <ul style="list-style: none; padding-left: 0; text-align:left;">
+              <li style="margin-bottom: 0.5em;"><i class="fas fa-home" style="margin-right: 0.5em; color: var(--accent);"></i>4 Wohneinheiten à 105 m² (3 Zimmer, Küche, Bad, WC, Diele)</li>
+              <li style="margin-bottom: 0.5em;"><i class="fas fa-ruler-combined" style="margin-right: 0.5em; color: var(--accent);"></i>Gesamtfläche: ca. 594 m²</li>
+              <li style="margin-bottom: 0.5em;"><i class="fas fa-layer-group" style="margin-right: 0.5em; color: var(--accent);"></i>Etagen: 2</li>
+              <li style="margin-bottom: 0.5em;"><i class="fas fa-calendar-alt" style="margin-right: 0.5em; color: var(--accent);"></i>Baujahr: 1980</li>
+              <li style="margin-bottom: 0.5em;"><i class="fas fa-check-circle" style="margin-right: 0.5em; color: var(--accent);"></i>Zustand: Gepflegt</li>
+              <li style="margin-bottom: 0.5em;"><i class="fas fa-hand-holding-usd" style="margin-right: 0.5em; color: var(--accent);"></i>Provision: 5,95 % inkl. MwSt (Käuferprovision)</li>
+            </ul>
+
+            <h4 style="margin-top: 1em; margin-bottom: 0.5em; text-align:left;"><i class="fas fa-star" style="margin-right: 0.5em; color: var(--primary);"></i>Ausstattung</h4>
+            <ul style="list-style: none; padding-left: 0; text-align:left;">
+              <li style="margin-bottom: 0.5em;"><i class="fas fa-fire" style="margin-right: 0.5em; color: var(--accent);"></i>Gas-Zentralheizung (Buderus, 2012)</li>
+              <li style="margin-bottom: 0.5em;"><i class="fas fa-bolt" style="margin-right: 0.5em; color: var(--accent);"></i>Verbrauchsausweis: 107 kWh/(m²·a)</li>
+              <li style="margin-bottom: 0.5em;"><i class="fas fa-shield-alt" style="margin-right: 0.5em; color: var(--accent);"></i>Wärmedämmfassade (2004)</li>
+              <li style="margin-bottom: 0.5em;"><i class="fas fa-building" style="margin-right: 0.5em; color: var(--accent);"></i>Dach erneuert (2006)</li>
+              <li style="margin-bottom: 0.5em;"><i class="fas fa-bath" style="margin-right: 0.5em; color: var(--accent);"></i>Teilweise sanierte Bäder</li>
+            </ul>
+
+            <h4 style="margin-top: 1em; margin-bottom: 0.5em; text-align:left;"><i class="fas fa-map-marker-alt" style="margin-right: 0.5em; color: var(--primary);"></i>Lage</h4>
+            <p style="text-align:left;">Ruhige Lage in Schöneck (Wetteraukreis), ca. 20 km nach Frankfurt.</p>
+            <ul style="list-style: none; padding-left: 0; text-align:left;">
+              <li style="margin-bottom: 0.5em;"><i class="fas fa-train" style="margin-right: 0.5em; color: var(--accent);"></i><b>Bahn:</b> 30 Min. nach Frankfurt (Park & Ride).</li>
+              <li style="margin-bottom: 0.5em;"><i class="fas fa-bus" style="margin-right: 0.5em; color: var(--accent);"></i><b>Bus:</b> Verbindungen nach Bad Vilbel und Hanau.</li>
+              <li style="margin-bottom: 0.5em;"><i class="fas fa-plane-departure" style="margin-right: 0.5em; color: var(--accent);"></i><b>Flughafen Frankfurt:</b> ca. 40 Min.</li>
+              <li style="margin-bottom: 0.5em;"><i class="fas fa-shopping-cart" style="margin-right: 0.5em; color: var(--accent);"></i>Supermärkte & Infrastruktur in Bahnhofsnähe.</li>
+            </ul>
+            `
+
+        },
+        contact: {
+          phone: "+49 160-98787878",
+          email: "info@immobilienghumman.de"
+        }
+      }
+    ];
+
+    // Render properties with language support
+    function renderProperties(filtered = properties) {
+      const grid = document.getElementById('properties-grid');
+      grid.innerHTML = '';
+      
+      if (filtered.length === 0) {
+        grid.innerHTML = `<div style="grid-column: 1/-1; text-align:center; color:var(--text-light); font-size:1.2em; padding:2em;">${translations[currentLanguage].properties.no_results}</div>`;
+        return;
+      }
+      
+      filtered.forEach(p => {
+        const soldClass = p.sold ? 'sold' : '';
+        const propertySpecial = p.specialProperty ? `data-property="${p.specialProperty}"` : '';
+        const soldOutText = translations[currentLanguage].properties.sold_out;
+        const viewDetailsText = translations[currentLanguage].properties.view_details;
+        
+        grid.innerHTML += `
+          <div class="property-card ${soldClass}" data-id="${p.id}">
+            <div class="property-image" style="background-image:url('${p.images[0]}');" data-id="${p.id}" ${propertySpecial}>
+              ${p.sold ? `<span class="sold-out-label">${soldOutText}</span>` : `<span class="property-price">${p.price}</span>`}
+              ${p.sold ? `<span class="property-sold">${soldOutText}</span>` : ''}
+            </div>
+            <div class="property-content">
+              <div>
+                <div class="property-title">${p.title[currentLanguage]}</div>
+                <div class="property-location"><i class="fas fa-map-marker-alt"></i> ${p.location.charAt(0).toUpperCase() + p.location.slice(1).replace('-', ' ')}</div>
+                <div class="property-details">
+                  <div class="property-detail"><i class="fas fa-bed"></i> ${p.beds} ${translations[currentLanguage].properties.beds}</div>
+                  <div class="property-detail"><i class="fas fa-bath"></i> ${p.baths} ${translations[currentLanguage].properties.baths}</div>
+                  <div class="property-detail"><i class="fas fa-ruler-combined"></i> ${p.size} m²</div>
+                  <div class="property-detail"><i class="fas fa-car"></i> ${p.parking} ${p.parking === 1 ? translations[currentLanguage].properties.parking : translations[currentLanguage].properties.garage}</div>
+                </div>
+              </div>
+              <button class="view-details-btn" data-id="${p.id}" ${p.sold ? 'disabled style="opacity:.5;cursor:not-allowed;"' : ''}>${viewDetailsText}</button>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    // Navigation functionality
+    function showForRent() {
+      const forRentProperties = properties.filter(p => p.forrent);
+      renderProperties(forRentProperties);
+      document.getElementById('featured-properties').scrollIntoView({behavior: 'smooth'});
+    }
+
+    // Enhanced filtering logic for Location
+function filterFeaturedProperties() {
+  const location = document.getElementById('property-location').value;
+
+  let filtered = properties.filter(p => {
+    // Match location (case-insensitive, supports "Frankfurt")
+    let matchLocation = (!location || p.location.toLowerCase() === location.toLowerCase());
+    return matchLocation;
+  });
+
+  renderProperties(filtered);
+}
+
+// Update Featured Properties on dropdown change
+document.getElementById('property-location').addEventListener('change', filterFeaturedProperties);
+
+// Override form submit to use enhanced filtering
+document.getElementById('property-search-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  filterFeaturedProperties();
+  document.getElementById('featured-properties').scrollIntoView({behavior: 'smooth'});
+});
+
+    // Event listeners
+    document.getElementById('lang-toggle').addEventListener('click', toggleLanguage);
+    document.getElementById('lang-toggle-mobile').addEventListener('click', toggleLanguage);
+    document.getElementById('dark-mode-toggle').addEventListener('click', toggleDarkMode);
+    document.getElementById('dark-mode-toggle-mobile').addEventListener('click', toggleDarkMode);
+
+    // Hamburger menu functionality
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    const navOverlay = document.getElementById('nav-overlay');
+    const navMenuClose = document.getElementById('nav-menu-close');
+
+    hamburger.onclick = () => {
+      navMenu.classList.add('active');
+      navOverlay.classList.add('active');
+    };
+
+    const closeNavMenu = () => {
+        navMenu.classList.remove('active');
+        navOverlay.classList.remove('active');
+    };
+
+    navMenuClose.onclick = closeNavMenu;
+    navOverlay.onclick = closeNavMenu;
+
+    // Navigation scroll functionality
+    document.querySelectorAll('.nav-link.nav-scroll').forEach(link => {
+      link.onclick = function(e) {
+        e.preventDefault();
+        closeNavMenu();
+        const target = document.getElementById(this.dataset.scroll);
+        if (target) {
+          // Account for sticky header
+          const headerHeight = document.querySelector('.header-nav').offsetHeight;
+          const elementPosition = target.offsetTop - headerHeight - 20;
+          
+          window.scrollTo({
+            top: elementPosition,
+            behavior: 'smooth'
+          });
+        }
+      };
+    });
+
+    // Properties link functionality
+    document.querySelectorAll('.nav-link.nav-properties').forEach(link => {
+      link.onclick = function(e) {
+        e.preventDefault();
+        closeNavMenu();
+        renderProperties(properties);
+        document.getElementById('featured-properties').scrollIntoView({behavior: 'smooth'});
+      };
+    });
+
+    // CTA buttons scroll to contact form
+    const scrollToContact = (e) => {
+        e.preventDefault();
+        document.getElementById('contact-section').scrollIntoView({ behavior: 'smooth' });
+    };
+    document.getElementById('pm-cta-btn').addEventListener('click', scrollToContact);
+    document.getElementById('mortgage-cta-btn').addEventListener('click', scrollToContact);
+
+    // Footer Apartments link: filter by type "Apartment"
+    document.getElementById('footer-apartment-link').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('property-type').value = "Apartment";
+      filterFeaturedProperties();
+      document.getElementById('featured-properties').scrollIntoView({behavior: 'smooth'});
+    });
+
+    // Footer "Houses" link filters for House type
+    document.getElementById('footer-houses-link').addEventListener('click', function(e) {
+      e.preventDefault();
+      // Filter for properties of type "House" (case-insensitive)
+      const filtered = properties.filter(p => p.type && p.type.toLowerCase() === 'house');
+      renderProperties(filtered);
+      document.getElementById('featured-properties').scrollIntoView({behavior: 'smooth'});
+    });
+
+
+    // Lightbox functionality
+    const lightboxBg = document.getElementById('lightbox-bg');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const lightboxPrev = document.getElementById('lightbox-prev');
+    const lightboxNext = document.getElementById('lightbox-next');
+    let currentImageIndex = 0;
+    let currentPropertyImages = [];
+
+    function showLightbox(images, index) {
+        currentPropertyImages = images;
+        currentImageIndex = index;
+        lightboxImg.src = currentPropertyImages[currentImageIndex];
+        lightboxBg.classList.add('active');
+    }
+
+    function closeLightbox() {
+        lightboxBg.classList.remove('active');
+    }
+
+    function showNextImage() {
+        currentImageIndex = (currentImageIndex + 1) % currentPropertyImages.length;
+        lightboxImg.src = currentPropertyImages[currentImageIndex];
+    }
+
+    function showPrevImage() {
+        currentImageIndex = (currentImageIndex - 1 + currentPropertyImages.length) % currentPropertyImages.length;
+        lightboxImg.src = currentPropertyImages[currentImageIndex];
+    }
+
+    lightboxClose.onclick = closeLightbox;
+    lightboxBg.onclick = (e) => { if (e.target === lightboxBg) closeLightbox(); };
+    lightboxNext.onclick = showNextImage;
+    lightboxPrev.onclick = showPrevImage;
+
+
+    // Property modal functionality
+    function openModal(propertyId) {
+      const modalBg = document.getElementById('property-modal');
+      const modalContent = document.getElementById('modal-content');
+      const p = properties.find(x => x.id == propertyId);
+      if (!p) return;
+
+      const propertySpecial = p.specialProperty ? `data-property="${p.specialProperty}"` : '';
+      
+      modalContent.innerHTML = `
+        <button class="modal-close" id="modal-close"><i class="fas fa-times"></i></button>
+        <div class="modal-title">${p.title[currentLanguage]}</div>
+        <div class="modal-price">${p.price}</div>
+        <div class="modal-address"><i class="fas fa-map-marker-alt"></i> ${p.location.charAt(0).toUpperCase() + p.location.slice(1).replace('-', ' ')}</div>
+        <div class="modal-gallery">
+          ${p.images.map((img, idx) => `<img src="${img}" alt="Property image ${idx + 1}" data-idx="${idx}" data-id="${p.id}" ${propertySpecial}>`).join('')}
+        </div>
+        <div class="modal-description">${p.description[currentLanguage]}</div>
+        <div class="modal-contact">
+          <div><i class="fas fa-phone-alt"></i> ${p.contact.phone}</div>
+          <div><i class="fas fa-envelope"></i> ${p.contact.email}</div>
+        </div>
+      `;
+      
+      modalBg.style.display = 'flex'; // Use style.display to trigger animation
+      setTimeout(() => modalBg.classList.add('active'), 10);
+      
+      document.getElementById('modal-close').onclick = () => {
+        modalBg.classList.remove('active');
+        setTimeout(() => modalBg.style.display = 'none', 500);
+      };
+      
+      modalBg.onclick = function(e) {
+        if (e.target === modalBg) {
+            modalBg.classList.remove('active');
+            setTimeout(() => modalBg.style.display = 'none', 500);
+        }
+      };
+
+      // Add click listener for gallery images to open lightbox
+      modalContent.querySelector('.modal-gallery').addEventListener('click', (e) => {
+          if (e.target.tagName === 'IMG') {
+              const propertyId = e.target.dataset.id;
+              const imageIndex = parseInt(e.target.dataset.idx, 10);
+              const property = properties.find(prop => prop.id == propertyId);
+              if (property) {
+                  showLightbox(property.images, imageIndex);
+              }
+          }
+      });
+    }
+
+    // Property card click handling
+    document.getElementById('properties-grid').addEventListener('click', function(e) {
+      const button = e.target.closest('.view-details-btn');
+      const image = e.target.closest('.property-image');
+      
+      if (button && !button.disabled) {
+        const id = button.getAttribute('data-id');
+        openModal(id);
+      } else if (image) {
+        const id = image.getAttribute('data-id');
+        const property = properties.find(p => p.id == id);
+        if (property && !property.sold) {
+            openModal(id);
+        }
+      }
+    });
+
+    // Hero search functionality
+    document.getElementById('property-search-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const type = document.getElementById('property-type').value;
+      const location = document.getElementById('property-location').value;
+      
+      let filtered = properties.filter(p => {
+        let matchType = (!type || p.type === type);
+        let matchLocation = (!location || p.location === location);
+        // If a type is selected, only show properties for sale (not forrent)
+        let matchSale = true;
+        if (type) matchSale = !p.forrent;
+        return matchType && matchLocation && matchSale;
+      });
+      
+      renderProperties(filtered);
+      document.getElementById('featured-properties').scrollIntoView({behavior: 'smooth'});
+    });
+
+    // Image Slider Functionality
+    function initializeSliders() {
+        const sliders = document.querySelectorAll('.image-slider');
+        
+        sliders.forEach(slider => {
+            const slides = slider.querySelectorAll('.slide');
+            const dots = slider.querySelectorAll('.dot');
+            let currentSlide = 0;
+            let slideInterval;
+            
+            // Function to show specific slide
+            function showSlide(index) {
+                // Remove active class from all slides and dots
+                slides.forEach(slide => {
+                    slide.classList.remove('active', 'prev');
+                });
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                // Add prev class to current slide before switching
+                if (slides[currentSlide]) {
+                    slides[currentSlide].classList.add('prev');
+                }
+                
+                // Update current slide index
+                currentSlide = index;
+                
+                // Add active class to new slide and dot
+                slides[currentSlide].classList.add('active');
+                dots[currentSlide].classList.add('active');
+                
+                // Remove prev class after animation
+                setTimeout(() => {
+                    slides.forEach(slide => slide.classList.remove('prev'));
+                }, 50);
+            }
+            
+            // Function to go to next slide
+            function nextSlide() {
+                const next = (currentSlide + 1) % slides.length;
+                showSlide(next);
+            }
+            
+            // Auto-advance slides every 3 seconds
+            function startSlideshow() {
+                slideInterval = setInterval(nextSlide, 3000);
+            }
+            
+            // Stop slideshow
+            function stopSlideshow() {
+                clearInterval(slideInterval);
+            }
+            
+            // Add click handlers to dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    stopSlideshow();
+                    showSlide(index);
+                    startSlideshow();
+                });
+            });
+            
+            // Pause on hover, resume on leave
+            slider.addEventListener('mouseenter', stopSlideshow);
+            slider.addEventListener('mouseleave', startSlideshow);
+            
+            // Start the slideshow
+            startSlideshow();
+        });
+    }
+
+    // Initialize everything
+    document.addEventListener('DOMContentLoaded', () => {
+        initializeTheme();
+        updateLanguage();
+        renderProperties(properties);
+        
+        // Smooth scroll for clickable titles in About Us section
+        const clickableTitles = document.querySelectorAll('.clickable-title');
+        clickableTitles.forEach(title => {
+            title.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-scroll');
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    // Account for sticky header by adding offset
+                    const headerHeight = document.querySelector('.header-nav').offsetHeight;
+                    const elementPosition = targetElement.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: elementPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Initialize image sliders
+        initializeSliders();
+        
+        // Mobile touch support for flip cards
+        const flipCards = document.querySelectorAll('.flip-card');
+        flipCards.forEach(card => {
+            let touchStartTime;
+            let isTouched = false;
+            
+            card.addEventListener('touchstart', function(e) {
+                touchStartTime = new Date().getTime();
+                isTouched = true;
+            });
+            
+            card.addEventListener('touchend', function(e) {
+                const touchEndTime = new Date().getTime();
+                const touchDuration = touchEndTime - touchStartTime;
+                
+                // If it's a quick tap (less than 200ms), toggle the flip
+                if (isTouched && touchDuration < 200) {
+                    e.preventDefault();
+                    card.classList.toggle('flipped');
+                }
+                isTouched = false;
+            });
+            
+            // Reset on touch cancel
+            card.addEventListener('touchcancel', function(e) {
+                isTouched = false;
+            });
+        });
+    });
+  </script>
+</body>
+</html>
